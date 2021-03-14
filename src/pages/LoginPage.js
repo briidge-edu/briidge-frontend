@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import LoginForm from '../components/LoginForm';
+import AuthHeader from '../components/AuthHeader';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -13,7 +14,7 @@ export default function LoginPage() {
 
     return (
         <div className={classes.root}>
-            <h1>Welcome back!</h1>
+            <AuthHeader text={"Welcome Back!"}/>
             <LoginForm />
         </div>
     )

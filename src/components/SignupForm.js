@@ -23,8 +23,10 @@ export default function LoginForm() {
     const classes = useStyles();
 
     const [ state, setState ] = useState({
+        name: "",
         email: "",
         password: "",
+        password_confirmation: ""
     });
 
     const [loginErrors, setLoginErrors] = useState();
@@ -45,20 +47,25 @@ export default function LoginForm() {
     const handleSubmit = (event) => {
         event.preventDefault();
         // POST REQUEST GOES HERE
+        console.log(state.name);
         console.log(state.email);
         console.log(state.password);
+        console.log(state.password_confirmation)
     }
 
     return (
         <div>
             <form className={classes.root} noValidate autoComplete="off" onSubmit={handleSubmit}>
                 <FormControl className={classes.field}>
-                    <InputLabel>Email/Username</InputLabel>
+                    <InputLabel>Name</InputLabel>
+                    <Input id="name" aria-describedby="Name field" fullWidth 
+                        onChange={handleChange}
+                        value={state.name}
+                    />
+                </FormControl> <br/>
+                <FormControl className={classes.field}>
+                    <InputLabel>Email</InputLabel>
                     <Input id="email" aria-describedby="Email field" fullWidth 
-                        endAdornment={
-                            <InputAdornment position="end">
-                                <PersonIcon className={classes.personIcon}/>
-                            </InputAdornment>}
                         onChange={handleChange}
                         value={state.email}
                     />
