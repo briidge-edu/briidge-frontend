@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { FormControl, Input, InputLabel, InputAdornment, IconButton } from '@material-ui/core';
+import { FormControl, Input, InputLabel, InputAdornment, IconButton, Button } from '@material-ui/core';
 import PersonIcon from '@material-ui/icons/Person';
 import { Visibility, VisibilityOff } from '@material-ui/icons';
 import LoginButton from './LoginButton';
@@ -13,6 +13,10 @@ const useStyles = makeStyles((theme) => ({
 
     personIcon: {
         padding: '12px'
+    },
+
+    button: {
+        margin: '10px'
     }
 }));
 
@@ -77,7 +81,9 @@ export default function LoginForm() {
                         value={state.password}
                     />
                 </FormControl> <br/>
-                <LoginButton/>
+                <Button variant="contained" color="primary" className={classes.button} type="submit">
+                    Login
+                </Button>
             </form>
             
         </div>
