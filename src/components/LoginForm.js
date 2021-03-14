@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { FormControl, Input, InputLabel, InputAdornment, IconButton } from '@material-ui/core';
 import PersonIcon from '@material-ui/icons/Person';
 import { Visibility, VisibilityOff } from '@material-ui/icons';
+import LoginButton from './LoginButton';
 
 const useStyles = makeStyles((theme) => ({
     field: {
@@ -13,40 +14,73 @@ const useStyles = makeStyles((theme) => ({
     personIcon: {
         padding: '12px'
     }
-
 }));
 
 export default function LoginForm() {
     const classes = useStyles();
-    const [passwordShown, setPasswordShown] = useState(true);
+
+    const [ state, setState ] = useState({
+        email: "",
+        password: "",
+    });
+
+    const [loginErrors, setLoginErrors] = useState();
+
+    const [passwordShown, setPasswordShown] = useState(false);
+
     const togglePasswordVisibility = () => {
         setPasswordShown(passwordShown ? false : true)
     }
 
+    const handleChange = (event) => {
+        setState(prev => ({ 
+            ...prev,
+            [event.target.id]: event.target.value,
+        }))
+    }
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        // POST REQUEST GOES HERE
+        console.log(state.email);
+        console.log(state.password);
+    }
+
     return (
-        <form className={classes.root} noValidate autoComplete="off">
-            <FormControl className={classes.field}>
-                <InputLabel>Email/Username</InputLabel>
-                <Input id="email" aria-describedby="Email field" fullWidth 
-                    endAdornment={
-                        <InputAdornment position="end">
-                            <PersonIcon className={classes.personIcon}/>
-                        </InputAdornment>}
-                />
-            </FormControl> <br/>
-            <FormControl className={classes.field}>
-                <InputLabel>Password</InputLabel>
-                <Input id="password" aria-describedby="Password field" type={passwordShown ? "text" : "password"} endAdornment={
-              <InputAdornment position="end">
-                <IconButton
-                  aria-label="toggle password visibility"
-                  onClick={togglePasswordVisibility}
-                >
-                  {passwordShown ? <Visibility /> : <VisibilityOff />}
-                </IconButton>
-              </InputAdornment>}/>
-                
-            </FormControl>
-        </form>
+        
+        <div>
+            <form className={classes.root} noValidate autoComplete="off" onSubmit={handleSubmit}>
+                <FormControl className={classes.field}>
+                    <InputLabel>Email/Username</InputLabel>
+                    <Input id="email" aria-describedby="Email field" fullWidth 
+                        endAdornment={
+                            <InputAdornment position="end">
+                                <PersonIcon className={classes.personIcon}/>
+                            </InputAdornment>}
+                        onChange={handleChange}
+                        value={state.email}
+                    />
+                </FormControl> <br/>
+                <FormControl className={classes.field}>
+                    <InputLabel>Password</InputLabel>
+                    <Input id="password" aria-describedby="Password field" type={passwordShown ? "text" : "password"} 
+                        endAdornment={
+                            <InputAdornment position="end">
+                                <IconButton
+                                    aria-label="toggle password visibility"
+                                    onClick={togglePasswordVisibility}
+                                >
+                                {passwordShown ? <Visibility /> : <VisibilityOff />}
+                                </IconButton>
+                            </InputAdornment>}
+                        onChange={handleChange}
+                        value={state.password}
+                    />
+                </FormControl> <br/>
+                <LoginButton/>
+            </form>
+            
+        </div>
+        
     )
 }
