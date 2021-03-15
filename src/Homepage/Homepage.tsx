@@ -1,10 +1,14 @@
 import React from "react";
+import NaviBar from "../Shared/NaviBar";
 
 
 const Homepage = () => {
 
     return (
-        <p></p>
+        <div>
+            <NaviBar/>
+        </div>
+        
 
     );
 };
