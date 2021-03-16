@@ -42,14 +42,14 @@ export default function LoginForm() {
         setPasswordConfirmationShown(passwordConfirmationShown ? false : true)
     }
 
-    const handleChange = (event) => {
+    const handleChange = (event:any) => {
         setState(prev => ({ 
             ...prev,
             [event.target.id]: event.target.value,
         }))
     }
 
-    const handleSubmit = (event) => {
+    const handleSubmit = (event:any) => {
         event.preventDefault();
         // POST REQUEST GOES HERE
         console.log(state)
@@ -57,7 +57,7 @@ export default function LoginForm() {
 
     return (
         <div>
-            <form className={classes.root} noValidate autoComplete="off" onSubmit={handleSubmit}>
+            <form noValidate autoComplete="off" onSubmit={handleSubmit}>
                 <FormControl className={classes.field} variant="outlined">
                     <InputLabel>Name</InputLabel>
                     <OutlinedInput id="name" aria-describedby="Name field" label="Name"

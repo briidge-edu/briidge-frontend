@@ -14,10 +14,13 @@ const useStyles = makeStyles((theme) => ({
         textUnderlinePosition: 'under',
         textDecorationColor: '#FFDF00',
     }
-
 }));
 
-export default function AuthHeader(props) {
+interface Text {
+    text: string;
+}
+
+export default function AuthHeader(props:Text) {
     const classes = useStyles();
 
     return (
