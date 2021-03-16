@@ -10,12 +10,17 @@ const useStyles = makeStyles((theme) => ({
         width: '35%'
     },
 
+    input: {
+        fontFamily:"LeagueSpartan"
+    },
+
     personIcon: {
         padding: '12px'
     },
 
     button: {
-        margin: '10px'
+        fontFamily: 'LeagueSpartan',
+        margin: '20px'
     },
 
     submit: {
@@ -57,6 +62,7 @@ export default function LoginForm() {
 
     const handleSubmit = (event:any) => {
         event.preventDefault();
+        console.log(event)
         // POST REQUEST GOES HERE
         console.log(state)
     }
@@ -65,22 +71,22 @@ export default function LoginForm() {
         <div>
             <form noValidate autoComplete="off" onSubmit={handleSubmit}>
                 <FormControl className={classes.field} variant="outlined">
-                    <InputLabel>Name</InputLabel>
-                    <OutlinedInput id="name" aria-describedby="Name field" label="Name"
+                    <InputLabel className={classes.input}>Name</InputLabel>
+                    <OutlinedInput className={classes.input} id="name" aria-describedby="Name field" label="Name"
                         onChange={handleChange}
                         value={state.name}
                     />
                 </FormControl> <br/>
                 <FormControl className={classes.field} variant="outlined">
-                    <InputLabel>Email</InputLabel>
-                    <OutlinedInput id="email" aria-describedby="Email field" label="Email"
+                    <InputLabel className={classes.input}>Email</InputLabel>
+                    <OutlinedInput className={classes.input} id="email" aria-describedby="Email field" label="Email"
                         onChange={handleChange}
                         value={state.email}
                     />
                 </FormControl> <br/>
                 <FormControl className={classes.field} variant="outlined">
-                    <InputLabel>Password</InputLabel>
-                    <OutlinedInput id="password" aria-describedby="Password field" label="Password"
+                    <InputLabel className={classes.input}>Password</InputLabel>
+                    <OutlinedInput className={classes.input} id="password" aria-describedby="Password field" label="Password"
                         type={passwordShown ? "text" : "password"} 
                         endAdornment={
                             <InputAdornment position="end">
@@ -97,8 +103,8 @@ export default function LoginForm() {
                     />
                 </FormControl> <br/>
                 <FormControl className={classes.field} variant="outlined">
-                    <InputLabel>Re-enter Password</InputLabel>
-                    <OutlinedInput id="password_confirmation" aria-describedby="Password confirmation field" label="Re-enterPassword"
+                    <InputLabel className={classes.input}>Re-enter Password</InputLabel>
+                    <OutlinedInput className={classes.input} id="password_confirmation" aria-describedby="Password confirmation field" label="Re-enterPassword"
                         type={passwordConfirmationShown ? "text" : "password"} 
                         endAdornment={
                             <InputAdornment position="end">
@@ -114,14 +120,13 @@ export default function LoginForm() {
                         value={state.password_confirmation}
                     />
                 </FormControl> <br/>
-                <div>Are you a</div>
+                <div style={{marginTop: '5px'}}>Are you a</div>
                 <Button variant="contained" color="primary" className={classes.button} type="submit">
                     Student
                 </Button>
-                <Button variant="contained" color="primary" className={classes.button} type="submit">
+                <Button variant="contained" color="secondary" className={classes.button} type="submit">
                     Tutor
                 </Button>
-                
             </form>
         </div>
     )

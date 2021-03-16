@@ -5,7 +5,8 @@ import AuthHeader from '../components/AuthHeader';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        textAlign: 'center'
+        textAlign: 'center',
+        fontFamily: 'LeagueSpartan'
     }
 }));
 
