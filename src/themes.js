@@ -14,6 +14,9 @@ const theme = createMuiTheme({
       light: '#ffdf00',
       dark: '#ffdf00',
     }
+  },
+  typography: {
+    fontFamily: 'Montserrat'
   }
 });
 export default theme;
