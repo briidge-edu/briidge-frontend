@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { FormControl, Input, InputLabel, InputAdornment, IconButton, Button } from '@material-ui/core';
+import { FormControl, Input, InputLabel, InputAdornment, IconButton, Button, TextField, OutlinedInput } from '@material-ui/core';
 import PersonIcon from '@material-ui/icons/Person';
 import { Visibility, VisibilityOff } from '@material-ui/icons';
 
 const useStyles = makeStyles((theme) => ({
     field: {
         margin: '10px',
-        width: '30%'
+        width: '40%'
     },
 
     personIcon: {
@@ -58,23 +58,24 @@ export default function LoginForm() {
     return (
         <div>
             <form className={classes.root} noValidate autoComplete="off" onSubmit={handleSubmit}>
-                <FormControl className={classes.field}>
+                <FormControl className={classes.field} variant="outlined">
                     <InputLabel>Name</InputLabel>
-                    <Input id="name" aria-describedby="Name field" fullWidth 
+                    <OutlinedInput id="name" aria-describedby="Name field" label="Name"
                         onChange={handleChange}
                         value={state.name}
                     />
                 </FormControl> <br/>
-                <FormControl className={classes.field}>
+                <FormControl className={classes.field} variant="outlined">
                     <InputLabel>Email</InputLabel>
-                    <Input id="email" aria-describedby="Email field" fullWidth 
+                    <OutlinedInput id="email" aria-describedby="Email field" label="Email"
                         onChange={handleChange}
                         value={state.email}
                     />
                 </FormControl> <br/>
-                <FormControl className={classes.field}>
+                <FormControl className={classes.field} variant="outlined">
                     <InputLabel>Password</InputLabel>
-                    <Input id="password" aria-describedby="Password field" type={passwordShown ? "text" : "password"} 
+                    <OutlinedInput id="password" aria-describedby="Password field" label="Password"
+                        type={passwordShown ? "text" : "password"} 
                         endAdornment={
                             <InputAdornment position="end">
                                 <IconButton
@@ -89,9 +90,9 @@ export default function LoginForm() {
                         value={state.password}
                     />
                 </FormControl> <br/>
-                <FormControl className={classes.field}>
+                <FormControl className={classes.field} variant="outlined">
                     <InputLabel>Re-enter Password</InputLabel>
-                    <Input id="password_confirmation" aria-describedby="Password confirmation field" 
+                    <OutlinedInput id="password_confirmation" aria-describedby="Password confirmation field" label="Re-enterPassword"
                         type={passwordConfirmationShown ? "text" : "password"} 
                         endAdornment={
                             <InputAdornment position="end">
