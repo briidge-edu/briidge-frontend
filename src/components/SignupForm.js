@@ -34,12 +34,12 @@ export default function LoginForm() {
     const [passwordShown, setPasswordShown] = useState(false);
     const [passwordConfirmationShown, setPasswordConfirmationShown] = useState(false);
 
-    const togglePasswordVisibility = (event) => {
-        if (event.target.name == "passwordToggle") {
-            setPasswordShown(passwordShown ? false : true);
-        } else if (event.target.name == "passwordConfirmationToggle") {
-            setPasswordConfirmationShown(passwordConfirmationShown ? false : true);
-        }
+    const togglePasswordVisibility = () => {
+        setPasswordShown(passwordShown ? false : true)
+    }
+
+    const togglePasswordConfirmationVisibility = () => {
+        setPasswordConfirmationShown(passwordConfirmationShown ? false : true)
     }
 
     const handleChange = (event) => {
@@ -97,7 +97,7 @@ export default function LoginForm() {
                             <InputAdornment position="end">
                                 <IconButton
                                     aria-label="toggle password visibility"
-                                    onClick={togglePasswordVisibility}
+                                    onClick={togglePasswordConfirmationVisibility}
                                     name="passwordConfirmationToggle"
                                 >
                                 {passwordConfirmationShown ? <Visibility /> : <VisibilityOff />}
