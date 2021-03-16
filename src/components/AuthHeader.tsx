@@ -9,6 +9,7 @@ const useStyles = makeStyles((theme) => ({
     },
 
     h3: {
+        fontFamily: 'LeagueSpartan',
         color: '#0051FF',
         textDecoration: 'underline',
         textUnderlinePosition: 'under',
