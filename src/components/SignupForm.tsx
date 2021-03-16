@@ -15,7 +15,8 @@ const useStyles = makeStyles((theme) => ({
 
     button: {
         fontFamily: 'LeagueSpartan',
-        margin: '20px'
+        margin: '20px',
+        borderRadius: '30px'
     }
 }));
 
