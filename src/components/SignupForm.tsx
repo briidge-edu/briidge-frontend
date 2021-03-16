@@ -7,7 +7,7 @@ import { Visibility, VisibilityOff } from '@material-ui/icons';
 const useStyles = makeStyles((theme) => ({
     field: {
         margin: '10px',
-        width: '40%'
+        width: '35%'
     },
 
     personIcon: {
@@ -16,6 +16,12 @@ const useStyles = makeStyles((theme) => ({
 
     button: {
         margin: '10px'
+    },
+
+    submit: {
+        display: 'flex',
+        justifyContent: 'center',
+        flexDirection: 'column'
     }
 }));
 
@@ -108,9 +114,14 @@ export default function LoginForm() {
                         value={state.password_confirmation}
                     />
                 </FormControl> <br/>
+                <div>Are you a</div>
                 <Button variant="contained" color="primary" className={classes.button} type="submit">
-                    Login
+                    Student
                 </Button>
+                <Button variant="contained" color="primary" className={classes.button} type="submit">
+                    Tutor
+                </Button>
+                
             </form>
         </div>
     )
