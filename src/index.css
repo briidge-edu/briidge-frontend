@@ -14,8 +14,13 @@
 }
 
 @font-face {
-  font-family: 'Quicksand';
-  src: local('Quicksand'), url(./fonts/Quicksand-Light.otf) format('truetype');
+  font-family: 'Quicksand-Light';
+  src: local('Quicksand-Light'), url(./fonts/Quicksand-Light.otf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Quicksand-Bold';
+  src: local('Quicksand-Bold'), url(./fonts/Quicksand-Bold.otf) format('truetype');
 }
 
 body {

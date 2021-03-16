@@ -3,5 +3,6 @@
 }
 
 .font-nav {
-    color: rgb(255, 223, 0);
+    color: rgb(255, 223, 0) !important;
+    font-family: Quicksand-Bold;
 }

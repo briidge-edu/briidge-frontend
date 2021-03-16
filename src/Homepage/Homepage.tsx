@@ -8,8 +8,6 @@ const Homepage = () => {
         <div>
             <NaviBar/>
         </div>
-        
-
     );
 };
 
