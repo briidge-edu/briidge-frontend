@@ -3,6 +3,21 @@
   src: local('Kaige'), url(./fonts/KAIGE.ttf) format('truetype');
 }
 
+@font-face {
+  font-family: 'LeagueSpartan';
+  src: local('LeagueSpartan'), url(./fonts/LeagueSpartan-Bold.otf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: local('Montserrat'), url(./fonts/Montserrat-Regular.otf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Quicksand';
+  src: local('Quicksand'), url(./fonts/Quicksand-Light.otf) format('truetype');
+}
+
 body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
