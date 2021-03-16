@@ -6,3 +6,20 @@
     color: rgb(255, 223, 0) !important;
     font-family: Quicksand-Bold;
 }
+
+.btn {
+    color: black;
+    background-color: #ffdf00;
+    border-radius: 20px;
+    font-family: Quicksand-Bold;
+    padding: 5px 19px 5px 19px;
+}
+
+/* Using Flexbox */
+.row {
+    display: flex;
+}
+
+.column {
+    flex: 50%;
+}

@@ -1,0 +1,20 @@
+/* Using Flexbox */
+.row {
+    display: flex;
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.column {
+    flex: 30%;
+    text-align: center;
+}
+
+h2 {
+    font-family: LeagueSpartan;
+    color: #0051FF;
+}
+
+p {
+    font-family: Montserrat-Light;
+}
