@@ -7,15 +7,20 @@ import { Visibility, VisibilityOff } from '@material-ui/icons';
 const useStyles = makeStyles((theme) => ({
     field: {
         margin: '10px',
-        width: '30%'
+        width: '30%',
     },
 
-    personIcon: {
+    input: {
+        fontFamily: 'LeagueSpartan'
+    },
+
+    icon: {
         padding: '12px'
     },
 
     button: {
-        margin: '10px'
+        margin: '10px',
+        fontFamily: 'LeagueSpartan'
     }
 }));
 
@@ -52,19 +57,20 @@ export default function LoginForm() {
         <div>
             <form noValidate autoComplete="off" onSubmit={handleSubmit}>
                 <FormControl className={classes.field}>
-                    <InputLabel>Email/Username</InputLabel>
-                    <Input id="email" aria-describedby="Email field" fullWidth 
+                    <InputLabel className={classes.input}>Email/Username</InputLabel>
+                    <Input className={classes.input} id="email" aria-describedby="Email field" fullWidth 
                         endAdornment={
                             <InputAdornment position="end">
-                                <PersonIcon className={classes.personIcon}/>
+                                <PersonIcon className={classes.icon}/>
                             </InputAdornment>}
                         onChange={handleChange}
                         value={state.email}
                     />
                 </FormControl> <br/>
                 <FormControl className={classes.field}>
-                    <InputLabel>Password</InputLabel>
-                    <Input id="password" aria-describedby="Password field" type={passwordShown ? "text" : "password"} 
+                    <InputLabel className={classes.input}>Password</InputLabel>
+                    <Input className={classes.input} id="password" aria-describedby="Password field" 
+                        type={passwordShown ? "text" : "password"} 
                         endAdornment={
                             <InputAdornment position="end">
                                 <IconButton
