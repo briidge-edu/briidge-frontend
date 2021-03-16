@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { FormControl, Input, InputLabel, InputAdornment, IconButton, Button, TextField, OutlinedInput } from '@material-ui/core';
-import PersonIcon from '@material-ui/icons/Person';
+import { FormControl, InputLabel, InputAdornment, IconButton, Button, OutlinedInput } from '@material-ui/core';
 import { Visibility, VisibilityOff } from '@material-ui/icons';
 
 const useStyles = makeStyles((theme) => ({
@@ -14,30 +13,26 @@ const useStyles = makeStyles((theme) => ({
         fontFamily:"LeagueSpartan"
     },
 
-    personIcon: {
-        padding: '12px'
-    },
-
     button: {
         fontFamily: 'LeagueSpartan',
         margin: '20px'
-    },
-
-    submit: {
-        display: 'flex',
-        justifyContent: 'center',
-        flexDirection: 'column'
     }
 }));
 
 export default function LoginForm() {
     const classes = useStyles();
 
+    enum ApplicantType {
+        Student,
+        Tutor
+    }
+
     const [ state, setState ] = useState({
         name: "",
         email: "",
         password: "",
-        password_confirmation: ""
+        password_confirmation: "",
+        isTutor: false
     });
 
     const [loginErrors, setLoginErrors] = useState();
@@ -57,12 +52,12 @@ export default function LoginForm() {
         setState(prev => ({ 
             ...prev,
             [event.target.id]: event.target.value,
+            type: ApplicantType.Student
         }))
     }
 
     const handleSubmit = (event:any) => {
         event.preventDefault();
-        console.log(event)
         // POST REQUEST GOES HERE
         console.log(state)
     }
@@ -121,10 +116,12 @@ export default function LoginForm() {
                     />
                 </FormControl> <br/>
                 <div style={{marginTop: '5px'}}>Are you a</div>
-                <Button variant="contained" color="primary" className={classes.button} type="submit">
+                <Button variant="contained" color="primary" className={classes.button} type="submit"
+                    onClick={() => setState(prev => ({...prev, isTutor: false}))}>
                     Student
                 </Button>
-                <Button variant="contained" color="secondary" className={classes.button} type="submit">
+                <Button variant="contained" color="secondary" className={classes.button} type="submit"
+                    onClick={() => setState(prev => ({...prev, isTutor: true}))}> 
                     Tutor
                 </Button>
             </form>
