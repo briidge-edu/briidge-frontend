@@ -32,9 +32,14 @@ export default function LoginForm() {
     const [loginErrors, setLoginErrors] = useState();
 
     const [passwordShown, setPasswordShown] = useState(false);
+    const [passwordConfirmationShown, setPasswordConfirmationShown] = useState(false);
 
-    const togglePasswordVisibility = () => {
-        setPasswordShown(passwordShown ? false : true)
+    const togglePasswordVisibility = (event) => {
+        if (event.target.name == "passwordToggle") {
+            setPasswordShown(passwordShown ? false : true);
+        } else if (event.target.name == "passwordConfirmationToggle") {
+            setPasswordConfirmationShown(passwordConfirmationShown ? false : true);
+        }
     }
 
     const handleChange = (event) => {
@@ -47,10 +52,7 @@ export default function LoginForm() {
     const handleSubmit = (event) => {
         event.preventDefault();
         // POST REQUEST GOES HERE
-        console.log(state.name);
-        console.log(state.email);
-        console.log(state.password);
-        console.log(state.password_confirmation)
+        console.log(state)
     }
 
     return (
@@ -78,12 +80,31 @@ export default function LoginForm() {
                                 <IconButton
                                     aria-label="toggle password visibility"
                                     onClick={togglePasswordVisibility}
+                                    name="passwordToggle"
                                 >
-                                {passwordShown ? <Visibility /> : <VisibilityOff />}
+                                {passwordShown ? <Visibility  /> : <VisibilityOff />}
                                 </IconButton>
                             </InputAdornment>}
                         onChange={handleChange}
                         value={state.password}
+                    />
+                </FormControl> <br/>
+                <FormControl className={classes.field}>
+                    <InputLabel>Re-enter Password</InputLabel>
+                    <Input id="password_confirmation" aria-describedby="Password confirmation field" 
+                        type={passwordConfirmationShown ? "text" : "password"} 
+                        endAdornment={
+                            <InputAdornment position="end">
+                                <IconButton
+                                    aria-label="toggle password visibility"
+                                    onClick={togglePasswordVisibility}
+                                    name="passwordConfirmationToggle"
+                                >
+                                {passwordConfirmationShown ? <Visibility /> : <VisibilityOff />}
+                                </IconButton>
+                            </InputAdornment>}
+                        onChange={handleChange}
+                        value={state.password_confirmation}
                     />
                 </FormControl> <br/>
                 <Button variant="contained" color="primary" className={classes.button} type="submit">

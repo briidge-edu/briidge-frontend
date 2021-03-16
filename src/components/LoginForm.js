@@ -45,8 +45,7 @@ export default function LoginForm() {
     const handleSubmit = (event) => {
         event.preventDefault();
         // POST REQUEST GOES HERE
-        console.log(state.email);
-        console.log(state.password);
+        console.log(state)
     }
 
     return (
