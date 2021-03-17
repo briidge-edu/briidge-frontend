@@ -9,13 +9,23 @@
 }
 
 @font-face {
-  font-family: 'Montserrat';
-  src: local('Montserrat'), url(./fonts/Montserrat-Regular.otf) format('truetype');
+  font-family: 'Montserrat-Regular';
+  src: local('Montserrat-Regular'), url(./fonts/Montserrat-Regular.otf) format('truetype');
 }
 
 @font-face {
-  font-family: 'Quicksand';
-  src: local('Quicksand'), url(./fonts/Quicksand-Light.otf) format('truetype');
+  font-family: 'Montserrat-Light';
+  src: local('Montserrat-Light'), url(./fonts/Montserrat-Light.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Quicksand-Light';
+  src: local('Quicksand-Light'), url(./fonts/Quicksand-Light.otf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Quicksand-Bold';
+  src: local('Quicksand-Bold'), url(./fonts/Quicksand-Bold.otf) format('truetype');
 }
 
 body {
