@@ -1,16 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
-import { Router, Route, Switch, BrowserRouter } from 'react-router-dom';
-import Homepage from './Homepage/Homepage';
 import React from 'react';
+import './App.css';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Homepage from './pages/Homepage';
+import LoginPage from './pages/LoginPage';
+import SignupPage from './pages/SignupPage';
+import StudentSignup from './pages/StudentSignup';
+
+import { MuiThemeProvider } from '@material-ui/core';
+import briidgeTheme from './themes'
 
 function App() {
   return (
-    <BrowserRouter>
+    <MuiThemeProvider theme={briidgeTheme}>
+    <Router>
       <Switch>
-        <Route exact path="/" component={Homepage}/>
+        <Route exact path="/">
+          <Homepage />
+        </Route>
+        <Route path="/login">
+          <LoginPage />
+        </Route>
+        <Route path="/signup">
+          <SignupPage />
+        </Route>
+        <Route path="/studentsignup">
+          <StudentSignup />
+        </Route>
       </Switch>
-    </BrowserRouter>
+    </Router>
+    </MuiThemeProvider>
   );
 };
 
