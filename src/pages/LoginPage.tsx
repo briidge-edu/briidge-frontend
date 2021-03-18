@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
     },
     
     cta: {
-        fontFamily: 'Montserrat'
+        fontFamily: 'Montserrat-Regular'
     }
 }));
 

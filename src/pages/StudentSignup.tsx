@@ -6,7 +6,7 @@ import { Button, FormControl, InputLabel, MenuItem, Select, Typography } from '@
 const useStyles = makeStyles((theme) => ({
     root: {
         textAlign: 'center',
-        fontFamily: 'Montserrat'
+        fontFamily: 'Montserrat-Regular'
     },
 
     formControl: {
