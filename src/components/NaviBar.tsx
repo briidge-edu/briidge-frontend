@@ -1,9 +1,10 @@
 import React from "react";
-import {Navbar, Nav, Form, FormControl, Button} from 'react-bootstrap';
+import {Navbar, Nav, Form, FormControl} from 'react-bootstrap';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 import logo from "../Shared/BriidgeIconTransparent.png";
+import { Button, ButtonBase } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
     colorNav: {
@@ -44,8 +45,10 @@ const NaviBar = () => {
                 <Nav.Link className={classes.fontNav} href="#link">FAQs</Nav.Link>
             </Nav>
             <Form>
-                <button type="button" className={`${classes.btn} ${"btn-primary"}`} style={{"marginRight":10}}>Login</button>
-                <button type="button" className={`${classes.btn} ${"btn-primary"}`}>Sign up</button>
+                <Button type="button" className={`${classes.btn} ${"btn-primary"}`} style={{"marginRight":10}}
+                    component={Link} to={"/login"}>Login</Button>
+                <Button type="button" className={`${classes.btn} ${"btn-primary"}`}
+                    component={Link} to={"/signup"}>Sign up</Button>
             </Form>
         </Navbar.Collapse>
         </Navbar>
