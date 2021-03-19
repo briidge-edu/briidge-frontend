@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-export default function LoginPage() {
+export default function SignupPage() {
     const classes = useStyles();
 
     return (

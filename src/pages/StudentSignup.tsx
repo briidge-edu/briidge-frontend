@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-export default function ComponentName() {
+export default function StudentSignup() {
     const classes = useStyles();
 
     const [educationLevel, setEducationLevel] = useState("")
