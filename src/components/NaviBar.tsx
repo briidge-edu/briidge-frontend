@@ -31,18 +31,18 @@ const NaviBar = () => {
     const classes = useStyles();
 
     return (
-        <Navbar className={classes.colorNav} expand="md">
+        <Navbar className={`${classes.colorNav} ${"fixed-top"}`} expand="md">
         <Link to="/">
             <img src={logo} alt="Briidge Logo" width="50" height="35" style={{"marginRight":15}}/>
         </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
-                <Nav.Link className={classes.fontNav} href="./PlansPage">Our Plans</Nav.Link>
-                <Nav.Link className={classes.fontNav} href="#link">About Us</Nav.Link>
-                <Nav.Link className={classes.fontNav} href="#link">Our Tutors</Nav.Link>
-                <Nav.Link className={classes.fontNav} href="#link">Social Network</Nav.Link>
-                <Nav.Link className={classes.fontNav} href="#link">FAQs</Nav.Link>
+                <Nav.Link className={classes.fontNav} as={Link} to="./PlansPage">Our Plans</Nav.Link>
+                <Nav.Link className={classes.fontNav} as={Link} to="#href">About Us</Nav.Link>
+                <Nav.Link className={classes.fontNav} as={Link} to="#href">Our Tutors</Nav.Link>
+                <Nav.Link className={classes.fontNav} as={Link} to="#href">Social Network</Nav.Link>
+                <Nav.Link className={classes.fontNav} as={Link} to="#href">FAQs</Nav.Link>
             </Nav>
             <Form>
                 <Button type="button" className={`${classes.btn} ${"btn-primary"}`} style={{"marginRight":10}}
