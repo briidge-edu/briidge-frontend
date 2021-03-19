@@ -83,7 +83,7 @@ const PlansPage = () => {
 
                 <div className={classes.row}>
                     <div className={classes.box}>
-                        <h4> Free Trail </h4>
+                        <h4> Free Trial </h4>
                         <ul className={classes.content}>                        
                             <li>
                                 Complete Personalisation feature
