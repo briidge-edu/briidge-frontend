@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
     row: {
         display: "flex",
         justifyContent: "space-between",
-        margin: 30,
+        margin: "30px 30px 0 30px",
         padding: 30,
         paddingBottom: 100
     },
@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
         fontFamily:"LeagueSpartan",
         fontSize:30,
         color: "#0051FF",
-        paddingTop: 50
+        paddingTop: 100
     },
 
     box: {
@@ -45,7 +45,6 @@ const useStyles = makeStyles((theme) => ({
         fontFamily:"LeagueSpartan",
         padding: 40,
         margin: 30
-
     },
 
     content : {
