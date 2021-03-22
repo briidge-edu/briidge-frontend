@@ -6,6 +6,7 @@ import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
 import StudentSignup from './pages/StudentSignup';
 import PlansPage from './pages/PlansPage';
+import TutorsPage from './pages/TutorsPage';
 
 import { MuiThemeProvider } from '@material-ui/core';
 import briidgeTheme from './themes'
@@ -29,6 +30,9 @@ function App() {
         </Route>
         <Route path="/planspage">
           <PlansPage />
+        </Route>
+        <Route path="/tutors">
+          <TutorsPage />
         </Route>
       </Switch>
     </Router>
