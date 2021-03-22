@@ -2,12 +2,21 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import NaviBar from '../components/NaviBar';
 import AuthHeader from '../components/AuthHeader';
-import { Button } from '@material-ui/core';
+import { Button, Card, CardActions, CardContent, CardHeader, CardMedia, Typography } from '@material-ui/core';
 import { Link } from 'react-router-dom';
+import TutorCard from '../components/TutorCard'
 
 const useStyles = makeStyles((theme) => ({
     root: {
         textAlign: 'center',
+        display: 'flex',
+        flexDirection: 'column',
+        minHeight: '100vh'
+    },
+
+    cardContainer: {
+        display: 'flex',
+        marginBottom: '20px'
     },
 
     container: {
@@ -16,7 +25,8 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        flex: 1
     },
 
     cta: {
@@ -34,6 +44,13 @@ export default function TutorsPage() {
         <div className={classes.root}>
             <NaviBar />     
             <AuthHeader text={"Our Tutor Network"} />
+            <div className={classes.cardContainer}>
+                <TutorCard />
+                <TutorCard />
+                <TutorCard />
+                <TutorCard />
+                <TutorCard />
+            </div>
             <div className={classes.container}>
                 <Button className={classes.cta} component={Link} to="/signup" 
                     variant="contained" color="secondary" size="large">
