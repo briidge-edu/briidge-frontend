@@ -41,7 +41,7 @@ const NaviBar = () => {
                 <Nav.Link className={classes.fontNav} as={Link} to="./PlansPage">Our Plans</Nav.Link>
                 <Nav.Link className={classes.fontNav} as={Link} to="#href">About Us</Nav.Link>
                 <Nav.Link className={classes.fontNav} as={Link} to="./tutors">Our Tutors</Nav.Link>
-                <Nav.Link className={classes.fontNav} as={Link} to="#href">Social Network</Nav.Link>
+                <Nav.Link className={classes.fontNav} as={Link} to="./SocialNetworkPage">Social Network</Nav.Link>
                 <Nav.Link className={classes.fontNav} as={Link} to="#href">FAQs</Nav.Link>
             </Nav>
             <Form>
