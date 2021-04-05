@@ -2,9 +2,9 @@ import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import NaviBar from "../components/NaviBar";
 import './Homepage.css';
-import { Button, ButtonBase } from "@material-ui/core";
-import { Link } from 'react-router-dom';
-import { FullscreenExitTwoTone } from "@material-ui/icons";
+// import { Button, ButtonBase } from "@material-ui/core";
+// import { Link } from 'react-router-dom';
+// import { FullscreenExitTwoTone } from "@material-ui/icons";
 
 const useStyles = makeStyles((theme) => ({
     row: {

@@ -39,7 +39,7 @@ export default function LoginForm() {
 
     const [redirect, setRedirect] = useState(false);
 
-    const [loginErrors, setLoginErrors] = useState();
+    // const [loginErrors, setLoginErrors] = useState();
 
     const [passwordShown, setPasswordShown] = useState(false);
     const [passwordConfirmationShown, setPasswordConfirmationShown] = useState(false);

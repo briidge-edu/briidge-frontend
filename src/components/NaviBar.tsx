@@ -1,10 +1,10 @@
 import React from "react";
-import {Navbar, Nav, Form, FormControl} from 'react-bootstrap';
+import {Navbar, Nav, Form } from 'react-bootstrap';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 import logo from "../Shared/BriidgeIconTransparent.png";
-import { Button, ButtonBase } from "@material-ui/core";
+import { Button } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
     colorNav: {

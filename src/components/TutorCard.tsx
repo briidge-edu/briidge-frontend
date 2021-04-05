@@ -25,7 +25,7 @@ export default function TutorCard() {
 
     return (
         <div className={classes.root}>
-            <img src={image} className={classes.image}/>
+            <img src={image} className={classes.image} alt=''/>
             <Typography>Alberto Connelli</Typography>
             <Typography variant="subtitle2" style={{fontFamily: 'Montserrat-Light'}}>
                 PART-TIME TUTOR

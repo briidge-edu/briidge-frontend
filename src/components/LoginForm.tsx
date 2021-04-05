@@ -32,7 +32,7 @@ export default function LoginForm() {
         password: "",
     });
 
-    const [loginErrors, setLoginErrors] = useState();
+    // const [loginErrors, setLoginErrors] = useState();
 
     const [passwordShown, setPasswordShown] = useState(false);
 
