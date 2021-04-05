@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import AuthHeader from '../components/AuthHeader'
 import { Button, FormControl, InputLabel, MenuItem, Select, Typography } from '@material-ui/core';
+import NaviBar from '../components/NaviBar';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -40,6 +41,7 @@ export default function StudentSignup() {
 
     return (
         <div className={classes.root}>
+            <NaviBar />
             <AuthHeader text="Student Sign-Up" />
             <FormControl variant="outlined" className={classes.formControl}>
             <InputLabel>Level of Education</InputLabel>

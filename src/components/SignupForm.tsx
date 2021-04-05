@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { FormControl, InputLabel, InputAdornment, IconButton, Button, OutlinedInput } from '@material-ui/core';
 import { Visibility, VisibilityOff } from '@material-ui/icons';
+import { Redirect } from 'react-router';
 
 const useStyles = makeStyles((theme) => ({
     field: {
@@ -36,6 +37,8 @@ export default function LoginForm() {
         isTutor: false
     });
 
+    const [redirect, setRedirect] = useState(false);
+
     const [loginErrors, setLoginErrors] = useState();
 
     const [passwordShown, setPasswordShown] = useState(false);
@@ -61,6 +64,11 @@ export default function LoginForm() {
         event.preventDefault();
         // POST REQUEST GOES HERE
         console.log(state)
+        setRedirect(true);
+    }
+
+    if (redirect && !state.isTutor) {
+        return <Redirect to="/studentsignup" />
     }
 
     return (
