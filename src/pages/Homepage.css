@@ -2,9 +2,11 @@
 h2 {
     font-family: LeagueSpartan;
     color: #0051FF;
+    font-size: 40px;
+
 }
 
 p {
-    font-family: Montserrat-Light;
-    font-size: 18px;
+    font-family: Montserrat-Regular;
+    font-size: 25px;
 }
