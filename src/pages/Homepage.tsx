@@ -67,6 +67,10 @@ const useStyles = makeStyles((theme) => ({
     },
 
     multilineColumn: {
+        marginTop: '-10%',
+        '@media (max-width: 1100px)': {
+            marginTop: '0'
+        },
         flex: 1,
         display: 'flex',
         flexDirection: 'column',
