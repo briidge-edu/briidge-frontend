@@ -8,6 +8,7 @@ const useStyles = makeStyles((theme) => ({
     field: {
         margin: '10px',
         width: '30%',
+        minWidth: '300px'
     },
 
     input: {

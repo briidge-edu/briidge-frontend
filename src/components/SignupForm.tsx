@@ -7,7 +7,8 @@ import { Redirect } from 'react-router';
 const useStyles = makeStyles((theme) => ({
     field: {
         margin: '10px',
-        width: '35%'
+        width: '35%',
+        minWidth: '300px'
     },
 
     input: {
