@@ -6,18 +6,23 @@ import { Button } from "@material-ui/core";
 import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
+    root: {
+        backgroundColor:"#ffdf00",
+    },
+
     row: {
         display: "flex",
         justifyContent: "space-between",
-        margin: "30px 30px 0 30px",
         padding: 30,
-        paddingBottom: 100
+        paddingBottom: 100,
+        '@media (max-width: 1100px)': {
+            flexDirection: "column",
+        }
     },
 
     column: {
         flex: "100%",
         textAlign: "center",
-        backgroundColor:"#ffdf00"
     },
 
     input: {
@@ -34,17 +39,26 @@ const useStyles = makeStyles((theme) => ({
         fontFamily:"LeagueSpartan",
         fontSize:30,
         color: "#0051FF",
-        paddingTop: 100
+        paddingTop: 100,
+        paddingLeft: "5%",
+        paddingRight: "5%"
     },
 
     box: {
         float: "left",
-        width: '400px',
+        width: '30%',
         backgroundColor: "#FFFFFF",
-        borderRadius:60,
+        borderRadius: 60,
         fontFamily:"LeagueSpartan",
-        padding: 40,
-        margin: 30
+        padding: "3%",
+        margin: "3%",
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        '@media (max-width: 1100px)': {
+            width: '80vw',
+            marginTop: '10%'
+        },
     },
 
     content : {
@@ -53,7 +67,8 @@ const useStyles = makeStyles((theme) => ({
         fontFamily: "Montserrat-Light",
         fontWeight: "bold",
         float: "left",
-        textAlign: "left"
+        textAlign: "left",
+        flex: 2
     },
 
     btn: {
@@ -63,7 +78,6 @@ const useStyles = makeStyles((theme) => ({
         borderRadius: "20px",
         fontFamily: "Quicksand-Bold",
         padding: "5px 19px 5px 19px",
-        margin: 20
     }
 }));
 
@@ -71,7 +85,7 @@ const PlansPage = () => {
     const classes = useStyles();
 
     return (
-        <div>
+        <div className={classes.root}>
             <NaviBar/>
             <div className={classes.column}>
                 <div>
