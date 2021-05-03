@@ -7,7 +7,8 @@ import { Redirect } from 'react-router';
 const useStyles = makeStyles((theme) => ({
     field: {
         margin: '10px',
-        width: '35%'
+        width: '35%',
+        minWidth: '300px'
     },
 
     input: {
@@ -39,7 +40,7 @@ export default function LoginForm() {
 
     const [redirect, setRedirect] = useState(false);
 
-    const [loginErrors, setLoginErrors] = useState();
+    // const [loginErrors, setLoginErrors] = useState();
 
     const [passwordShown, setPasswordShown] = useState(false);
     const [passwordConfirmationShown, setPasswordConfirmationShown] = useState(false);

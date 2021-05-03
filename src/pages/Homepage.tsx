@@ -12,51 +12,87 @@ import charity from "../Shared/charity.png";
 import read from "../Shared/read.png";
 
 import './Homepage.css';
+import { findByLabelText } from "@testing-library/dom";
 
 const useStyles = makeStyles((theme) => ({
     row: {
         display: "flex",
-        marginRight: "0",
-        marginLeft: "0"
+        height: '100vh',
+        '@media (max-width: 1100px)': {
+            flexDirection: "column",
+            height: '100%'
+        }
     },
 
     column: {
-        flex: "30%",
-        textAlign: "center"
+        flex: 1,
+        textAlign: "center",
+        '@media (max-width: 1100px)': {
+        }
+    },
+
+    img: {
+        maxWidth: "100%",
+        maxHeight: "100%",
+        '@media (max-width: 1100px)': {
+            height: '20vh'
+        }
+    },
+
+    icon: {
+        maxWidth: "30%",
+        margin: "10% auto",
+        marginTop: '10%',
+        height: "20%",
     },
 
     textColumn: {
-        margin: "20px 30px 0 30px",
-    },
-    
-    textColumnTopMargin: {
-        marginTop: "50px", 
-    },
-
-    marginForNextPage: {
-        marginBottom: "350px", 
+        display: 'flex',
+        flexDirection: 'column',
+        margin: '0 auto',
+        paddingLeft: '10%',
+        paddingRight: '10%',
+        height: '100%',
     },
 
     marginForLastPage: {
-        marginBottom: "170px", 
-    },
-
-    textColumnLong: {
-        marginLeft: "70px", 
-        marginRight: "70px", 
+        marginBottom: "170px",
     },
 
     whoWeAre: {
-        marginTop: 180, 
+        marginTop: '20%',
+        '@media (max-width: 1100px)': {
+            marginTop: '10%'
+        }
+    },
+
+    multilineColumn: {
+        marginTop: '-10%',
+        '@media (max-width: 1100px)': {
+            marginTop: '0'
+        },
+        flex: 1,
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-evenly'
     },
 
     multiline: {
-        marginTop: 100, 
+        maxWidth: '100%',
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center'
     },
 
-    multilineVision: {
-        marginTop: 100, 
-        textAlign: "right"
+    multilineIcon: {
+        height: '100%',
+        width: '10%',
+        alignSelf: 'flex-start'
+    },
+
+    checkmark: {
+        height: '60%',
+        width: '8%',
     },
 
     premiumSubscriberText: {
@@ -86,13 +122,12 @@ const useStyles = makeStyles((theme) => ({
     },
 
     input: {
-        fontFamily:"LeagueSpartan"
+        fontFamily: "LeagueSpartan"
     },
 
     button: {
         fontFamily: 'LeagueSpartan',
-        margin: '20px',
-        borderRadius: '30px'
+
     }
 }));
 
@@ -101,31 +136,31 @@ const Homepage = () => {
 
     return (
         <div>
-            <NaviBar/>
+            <NaviBar />
             <div className={classes.row}>
-                <div className={classes.column} style={{"backgroundColor":"#0051FF"}}>
-                    <img src={wordLogo} alt="Briidge Word Logo" style={{"marginRight":15, maxWidth:"100%", height:"auto"}}/>
+                <div className={classes.column} style={{ "backgroundColor": "#0051FF" }}>
+                    <img src={wordLogo} alt="Briidge Word Logo" className={classes.img} />
                 </div>
                 <div className={classes.column}>
                     <div className={classes.textColumn}>
                         <h2 className={classes.whoWeAre}>Who We Are</h2>
-                        <div className={classes.yellowLine}/>
+                        <div className={classes.yellowLine} />
                         <p>Briidge is a revolutionary matchmaking platform that aims to bridge students and tutors together through the use of our personalised smart algorithm.</p>
                         <p>We also aim to ease information sharing between students by connecting them through our social networking platform.</p>
                         <p>
-                        At briidge, we strongly believe that everyone has an equal right to high-quality education, regardless of any barrier.
+                            At briidge, we strongly believe that everyone has an equal right to high-quality education, regardless of any barrier.
                         </p>
                     </div>
                 </div>
             </div>
             <h2 className={classes.header}>
                 Our Mission
-            </h2>
+                </h2>
             <div className={classes.row}>
                 <div className={classes.column}>
                     <div className={classes.textColumn}>
-                        <img src={mission1} alt="mission1" style={{maxWidth:"50%", height:"auto"}}/>
-                        <p className={`${classes.textColumnTopMargin} ${classes.marginForNextPage}` }> 
+                        <img className={classes.icon} src={mission1} alt="mission1" />
+                        <p>
                             We aim to personalize learning by connecting students to tutors based on their personal academic needs supporting them towards their educational goals.
                         </p>
                     </div>
@@ -133,8 +168,8 @@ const Homepage = () => {
 
                 <div className={classes.column}>
                     <div className={classes.textColumn}>
-                        <img src={mission2} alt="mission2" style={{"marginTop":20, "marginBottom":15, maxWidth:"45%", padding:20, height:"auto"}}/>
-                        <p className={classes.textColumnTopMargin}>
+                        <img className={classes.icon} src={mission2} alt="mission2" />
+                        <p>
                             We strive to create opportunities for underprivileged students to receive high-quality tuition in an environment best suited for them.
                         </p>
                     </div>
@@ -144,49 +179,49 @@ const Homepage = () => {
             <div className={classes.row}>
                 <div className={classes.column}>
                     <div className={classes.textColumn}>
-                        <h2 className={classes.whoWeAre}>Our Vision</h2>
-                        <p className={`${classes.textColumnTopMargin} ${classes.textColumnLong} ${classes.marginForNextPage}`}>
+                        <h2 className={classes.whoWeAre} style={{ marginBottom: '15%' }}>Our Vision</h2>
+                        <p>
                             We aim to be the catalyst of change in the tuition industry worldwide through our convenient and affordable online tutor matchmaking service. We strive to provide access to quality education to students worldwide, especially the underprivileged.
                         </p>
                     </div>
                 </div>
 
-                <div className={classes.column}>
-                        <h2 className={classes.multiline}>
-                            <img src={vision1} alt="vision1" style={{height:100, width: 100, marginRight: 50}}/>
-                            Affordability
-                            <img src={checkmark} alt="checkmark" style={{height: 50, width: 50, marginLeft: 30}}/>
-                        </h2>
-                        <h2 className={classes.multiline}>
-                            <img src={vision2} alt="vision2" style={{height:100, width: 100, marginRight: 115}}/>
-                            Flexibility
-                            <img src={checkmark} alt="checkmark" style={{height: 50, width: 50, marginLeft: 23}}/>
-                        </h2>
-                        <h2 className={classes.multiline}>
-                            <img src={vision3} alt="vision3" style={{height:100, width: 100, marginRight: 70}}/>
-                            Convenience
-                            <img src={checkmark} alt="checkmark" style={{height: 50, width: 50, marginLeft: 14}}/>
-                        </h2>
+                <div className={classes.multilineColumn}>
+                    <h2 className={classes.multiline}>
+                        <img className={classes.multilineIcon} src={vision1} alt="vision1" />
+                        <span>Affordability</span>
+                        <img className={classes.checkmark} src={checkmark} alt="checkmark" />
+                    </h2>
+                    <h2 className={classes.multiline}>
+                        <img className={classes.multilineIcon} src={vision2} alt="vision2" />
+                        <span >Flexibility</span>
+                        <img className={classes.checkmark} src={checkmark} alt="checkmark" />
+                    </h2>
+                    <h2 className={classes.multiline}>
+                        <img className={classes.multilineIcon} src={vision3} alt="vision3" />
+                        <span>Convenience</span>
+                        <img className={classes.checkmark} src={checkmark} alt="checkmark" />
+                    </h2>
                 </div>
             </div>
-
+            <h2 className={classes.header}>Our Social Impact</h2>
             <div className={classes.row}>
                 <div className={classes.column}>
                     <div className={classes.textColumn}>
-                    <img src={charity} alt="charity" style={{maxWidth:"30%", height:"auto"}}/>
-                    <img src={read} alt="read" style={{maxWidth:"30%", height:"auto"}}/>
-                    
-                        <p className={`${classes.textColumnTopMargin} ${classes.marginForLastPage} ${classes.textColumnLong} ${classes.premiumSubscriberText}`}> 
+                        <img className={classes.icon} src={charity} alt="charity" />
+                        <p className={classes.premiumSubscriberText}>
                             For every one student that becomes a premium subscriber, one other underprivileged student is granted free access to our platform and can begin maximizing their education journey.
                         </p>
                     </div>
                 </div>
 
                 <div className={classes.column}>
-                        <h2 className={classes.whoWeAre}>Our Social Impact</h2>
-                        <p className={`${classes.textColumnTopMargin} ${classes.textColumnLong}`}> 
+                    <div className={classes.textColumn}>
+                        <img className={classes.icon} src={read} alt="read" />
+                        <p>
                             We strive to support the underprivileged student community through our platform. Every student using our services will help provide better access to quality education for those students in need, starting from Singapore.
                         </p>
+                    </div>
                 </div>
             </div>
         </div>

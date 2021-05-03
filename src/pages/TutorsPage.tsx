@@ -2,7 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import NaviBar from '../components/NaviBar';
 import AuthHeader from '../components/AuthHeader';
-import { Button, Card, CardActions, CardContent, CardHeader, CardMedia, Typography } from '@material-ui/core';
+import { Button, Grid } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import TutorCard from '../components/TutorCard'
 
@@ -15,7 +15,6 @@ const useStyles = makeStyles((theme) => ({
     },
 
     cardContainer: {
-        display: 'flex',
         marginBottom: '20px'
     },
 
@@ -34,6 +33,8 @@ const useStyles = makeStyles((theme) => ({
         fontSize: '125%',
         textTransform: 'none',
         borderRadius: '25px/75px',
+        marginTop: '3%',
+        marginBottom: '3%'
     }
 }));
 
@@ -42,22 +43,22 @@ export default function TutorsPage() {
 
     return (
         <div className={classes.root}>
-            <NaviBar />     
+            <NaviBar />
             <AuthHeader text={"Our Tutor Network"} />
-            <div className={classes.cardContainer}>
+            <Grid className={classes.cardContainer} container direction="row" justify="space-evenly" alignItems="center" >
                 <TutorCard />
                 <TutorCard />
                 <TutorCard />
                 <TutorCard />
                 <TutorCard />
-            </div>
+            </Grid>
             <div className={classes.container}>
-                <Button className={classes.cta} component={Link} to="/signup" 
+                <Button className={classes.cta} component={Link} to="/signup"
                     variant="contained" color="secondary" size="large">
                     Join the Briidge Tutor Community Now!
                 </Button>
             </div>
-            
+
         </div>
     )
 }

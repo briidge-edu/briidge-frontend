@@ -5,7 +5,12 @@ import { Typography } from '@material-ui/core';
 const useStyles = makeStyles((theme) => ({
     container: {
         marginTop: '10%',
-        marginBottom: '30px'
+        marginBottom: '30px',
+        '@media (max-width: 1100px)': {
+            marginTop: '30%',
+            paddingLeft: '5%',
+            paddingRight: '5%'
+        }
     },
 
     h3: {

@@ -8,6 +8,7 @@ const useStyles = makeStyles((theme) => ({
     field: {
         margin: '10px',
         width: '30%',
+        minWidth: '300px'
     },
 
     input: {
@@ -32,7 +33,7 @@ export default function LoginForm() {
         password: "",
     });
 
-    const [loginErrors, setLoginErrors] = useState();
+    // const [loginErrors, setLoginErrors] = useState();
 
     const [passwordShown, setPasswordShown] = useState(false);
 
