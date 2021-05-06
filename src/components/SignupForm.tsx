@@ -12,14 +12,10 @@ const useStyles = makeStyles((theme) => ({
     },
 
     input: {
-        fontFamily:"LeagueSpartan"
+        fontFamily: "LeagueSpartan"
     },
 
-    button: {
-        fontFamily: 'LeagueSpartan',
-        margin: '20px',
-        borderRadius: '30px'
-    }
+
 }));
 
 export default function LoginForm() {
@@ -30,7 +26,7 @@ export default function LoginForm() {
         Tutor
     }
 
-    const [ state, setState ] = useState({
+    const [state, setState] = useState({
         name: "",
         email: "",
         password: "",
@@ -38,7 +34,6 @@ export default function LoginForm() {
         isTutor: false
     });
 
-    const [redirect, setRedirect] = useState(false);
 
     // const [loginErrors, setLoginErrors] = useState();
 
@@ -53,23 +48,18 @@ export default function LoginForm() {
         setPasswordConfirmationShown(passwordConfirmationShown ? false : true)
     }
 
-    const handleChange = (event:any) => {
-        setState(prev => ({ 
+    const handleChange = (event: any) => {
+        setState(prev => ({
             ...prev,
             [event.target.id]: event.target.value,
             type: ApplicantType.Student
         }))
     }
 
-    const handleSubmit = (event:any) => {
+    const handleSubmit = (event: any) => {
         event.preventDefault();
         // POST REQUEST GOES HERE
         console.log(state)
-        setRedirect(true);
-    }
-
-    if (redirect && !state.isTutor) {
-        return <Redirect to="/studentsignup" />
     }
 
     return (
@@ -81,18 +71,18 @@ export default function LoginForm() {
                         onChange={handleChange}
                         value={state.name}
                     />
-                </FormControl> <br/>
+                </FormControl> <br />
                 <FormControl className={classes.field} variant="outlined">
                     <InputLabel className={classes.input}>Email</InputLabel>
                     <OutlinedInput className={classes.input} id="email" aria-describedby="Email field" label="Email"
                         onChange={handleChange}
                         value={state.email}
                     />
-                </FormControl> <br/>
+                </FormControl> <br />
                 <FormControl className={classes.field} variant="outlined">
                     <InputLabel className={classes.input}>Password</InputLabel>
                     <OutlinedInput className={classes.input} id="password" aria-describedby="Password field" label="Password"
-                        type={passwordShown ? "text" : "password"} 
+                        type={passwordShown ? "text" : "password"}
                         endAdornment={
                             <InputAdornment position="end">
                                 <IconButton
@@ -100,17 +90,17 @@ export default function LoginForm() {
                                     onClick={togglePasswordVisibility}
                                     name="passwordToggle"
                                 >
-                                {passwordShown ? <Visibility  /> : <VisibilityOff />}
+                                    {passwordShown ? <Visibility /> : <VisibilityOff />}
                                 </IconButton>
                             </InputAdornment>}
                         onChange={handleChange}
                         value={state.password}
                     />
-                </FormControl> <br/>
+                </FormControl> <br />
                 <FormControl className={classes.field} variant="outlined">
                     <InputLabel className={classes.input}>Re-enter Password</InputLabel>
                     <OutlinedInput className={classes.input} id="password_confirmation" aria-describedby="Password confirmation field" label="Re-enterPassword"
-                        type={passwordConfirmationShown ? "text" : "password"} 
+                        type={passwordConfirmationShown ? "text" : "password"}
                         endAdornment={
                             <InputAdornment position="end">
                                 <IconButton
@@ -118,22 +108,13 @@ export default function LoginForm() {
                                     onClick={togglePasswordConfirmationVisibility}
                                     name="passwordConfirmationToggle"
                                 >
-                                {passwordConfirmationShown ? <Visibility /> : <VisibilityOff />}
+                                    {passwordConfirmationShown ? <Visibility /> : <VisibilityOff />}
                                 </IconButton>
                             </InputAdornment>}
                         onChange={handleChange}
                         value={state.password_confirmation}
                     />
-                </FormControl> <br/>
-                <div style={{marginTop: '5px'}}>Are you a</div>
-                <Button variant="contained" color="primary" className={classes.button} type="submit"
-                    onClick={() => setState(prev => ({...prev, isTutor: false}))}>
-                    Student
-                </Button>
-                <Button variant="contained" color="secondary" className={classes.button} type="submit"
-                    onClick={() => setState(prev => ({...prev, isTutor: true}))}> 
-                    Tutor
-                </Button>
+                </FormControl> <br />
             </form>
         </div>
     )
