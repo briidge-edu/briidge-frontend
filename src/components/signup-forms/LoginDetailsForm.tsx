@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { ChangeEventHandler, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { FormControl, InputLabel, InputAdornment, IconButton, Button, OutlinedInput } from '@material-ui/core';
 import { Visibility, VisibilityOff } from '@material-ui/icons';
@@ -14,26 +14,19 @@ const useStyles = makeStyles((theme) => ({
     input: {
         fontFamily: "LeagueSpartan"
     },
-
-
 }));
 
-export default function LoginForm() {
+interface LoginFormProps {
+    handleChange: ChangeEventHandler;
+    state: {
+        email: string;
+        password: string;
+        password_confirmation: string;
+    };
+}
+
+export default function LoginForm(props: LoginFormProps) {
     const classes = useStyles();
-
-    enum ApplicantType {
-        Student,
-        Tutor
-    }
-
-    const [state, setState] = useState({
-        name: "",
-        email: "",
-        password: "",
-        password_confirmation: "",
-        isTutor: false
-    });
-
 
     // const [loginErrors, setLoginErrors] = useState();
 
@@ -48,35 +41,14 @@ export default function LoginForm() {
         setPasswordConfirmationShown(passwordConfirmationShown ? false : true)
     }
 
-    const handleChange = (event: any) => {
-        setState(prev => ({
-            ...prev,
-            [event.target.id]: event.target.value,
-            type: ApplicantType.Student
-        }))
-    }
-
-    const handleSubmit = (event: any) => {
-        event.preventDefault();
-        // POST REQUEST GOES HERE
-        console.log(state)
-    }
-
     return (
         <div>
-            <form noValidate autoComplete="off" onSubmit={handleSubmit}>
-                <FormControl className={classes.field} variant="outlined">
-                    <InputLabel className={classes.input}>Name</InputLabel>
-                    <OutlinedInput className={classes.input} id="name" aria-describedby="Name field" label="Name"
-                        onChange={handleChange}
-                        value={state.name}
-                    />
-                </FormControl> <br />
+            <form noValidate autoComplete="off">
                 <FormControl className={classes.field} variant="outlined">
                     <InputLabel className={classes.input}>Email</InputLabel>
                     <OutlinedInput className={classes.input} id="email" aria-describedby="Email field" label="Email"
-                        onChange={handleChange}
-                        value={state.email}
+                        onChange={props.handleChange}
+                        value={props.state.email}
                     />
                 </FormControl> <br />
                 <FormControl className={classes.field} variant="outlined">
@@ -93,8 +65,8 @@ export default function LoginForm() {
                                     {passwordShown ? <Visibility /> : <VisibilityOff />}
                                 </IconButton>
                             </InputAdornment>}
-                        onChange={handleChange}
-                        value={state.password}
+                        onChange={props.handleChange}
+                        value={props.state.password}
                     />
                 </FormControl> <br />
                 <FormControl className={classes.field} variant="outlined">
@@ -111,8 +83,8 @@ export default function LoginForm() {
                                     {passwordConfirmationShown ? <Visibility /> : <VisibilityOff />}
                                 </IconButton>
                             </InputAdornment>}
-                        onChange={handleChange}
-                        value={state.password_confirmation}
+                        onChange={props.handleChange}
+                        value={props.state.password_confirmation}
                     />
                 </FormControl> <br />
             </form>
