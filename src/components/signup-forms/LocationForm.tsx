@@ -11,8 +11,6 @@ const useStyles = makeStyles((theme) => ({
     formControl: {
         margin: theme.spacing(3),
     },
-
-
 }));
 
 const areas = ['Central', 'East', 'West', 'North', 'North-East']
@@ -40,9 +38,6 @@ export default function LocationForm(props: LocationProps) {
                     </FormGroup>
                 </FormControl>
             </div>)}
-            
-           
-
         </div>
     )
 }

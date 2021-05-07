@@ -36,6 +36,7 @@ const MenuProps = {
 };
 
 const languages = ['English', 'Mandarin', 'Malay', 'Tamil']
+const eduLevels = ['Primary', 'Secondary', 'Junior College', 'Polytechnic', 'ITE', 'University']
 
 interface StudentPDProps {
     handleChange: ChangeEventHandler;
@@ -63,18 +64,12 @@ export default function StudentPDForm(props: StudentPDProps) {
             <FormControl variant="outlined" className={classes.formControl}>
                 <InputLabel>Level of Education</InputLabel>
                 <Select
-                    labelId="demo-simple-select-outlined-label"
-                    id="demo-simple-select-outlined"
+                    name="education"
                     value={props.state.education}
                     onChange={(props.handleEducationChange)}
                     label="Level of Education"
                 >
-                    <MenuItem value={"primary"}>Primary</MenuItem>
-                    <MenuItem value={"secondary"}>Secondary</MenuItem>
-                    <MenuItem value={"jc"}>Junior College</MenuItem>
-                    <MenuItem value={"polytechnic"}>Polytechnic</MenuItem>
-                    <MenuItem value={"ITE"}>ITE</MenuItem>
-                    <MenuItem value={"University"}>University</MenuItem>
+                    {eduLevels.map(lvl => <MenuItem value={lvl}>{lvl}</MenuItem>)}
                 </Select>
             </FormControl> <br />
             {/* <div className={classes.upload}>
