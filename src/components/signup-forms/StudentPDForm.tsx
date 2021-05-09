@@ -1,6 +1,6 @@
 import React, { ChangeEventHandler } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Button, Checkbox, FormControl, Input, InputLabel, ListItemText, MenuItem, OutlinedInput, Select, Typography } from '@material-ui/core';
+import { Button, Checkbox, FormControl, FormControlLabel, FormLabel, Input, InputLabel, ListItemText, MenuItem, OutlinedInput, Radio, RadioGroup, Select, Typography } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
     field: {
@@ -42,8 +42,10 @@ interface StudentPDProps {
     handleChange: ChangeEventHandler;
     handleEducationChange: any;
     handleLanguageChange: any;
+    handleRadio: ChangeEventHandler;
     state: {
-        name: string;
+        name: string,
+        gender: string,
         education: string,
         language: string[],
     };
@@ -60,6 +62,13 @@ export default function StudentPDForm(props: StudentPDProps) {
                     onChange={props.handleChange}
                     value={props.state.name}
                 />
+            </FormControl> <br />
+            <FormControl component="fieldset">
+                <FormLabel component="legend">Gender</FormLabel>
+                <RadioGroup row aria-label="gender" name="gender" value={props.state.gender} onChange={props.handleRadio}>
+                    <FormControlLabel value="Male" control={<Radio />} label="Male" />
+                    <FormControlLabel value="Female" control={<Radio />} label="Female" />
+                </RadioGroup>
             </FormControl> <br />
             <FormControl variant="outlined" className={classes.formControl}>
                 <InputLabel>Level of Education</InputLabel>

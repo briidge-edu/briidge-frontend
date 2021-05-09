@@ -35,7 +35,7 @@ const subjects = [['Insert primary subject', 'Insert primary subject', 'Insert p
 const priceRanges = ["20-30","30-40","40-50","50-60","60-70","70-80","80-90","90-100","100-110","110-120"]
 
 interface PreferencesProps {
-    handleModeChange: ChangeEventHandler;
+    handleRadio: ChangeEventHandler;
     handleSubjectChange: ChangeEventHandler;
     handleChange: ChangeEventHandler;
     handlePriceChange: any;
@@ -49,7 +49,7 @@ export default function TuitionPreferences(props: PreferencesProps) {
         <div>
             <FormControl component="fieldset">
                 <FormLabel component="legend">Preferred Mode of Teaching</FormLabel>
-                <RadioGroup aria-label="gender" name="lesson-mode" value={props.state.lessonModef2f ? "f2f" : "online"} onChange={props.handleModeChange}>
+                <RadioGroup aria-label="gender" name="lesson-mode" value={props.state.lessonMode} onChange={props.handleRadio}>
                     <FormControlLabel value="f2f" control={<Radio />} label="Face-to-Face" />
                     <FormControlLabel value="online" control={<Radio />} label="Online" />
                 </RadioGroup>
