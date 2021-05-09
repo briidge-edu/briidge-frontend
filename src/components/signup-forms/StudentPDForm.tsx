@@ -1,6 +1,7 @@
 import React, { ChangeEventHandler } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Button, Checkbox, FormControl, FormControlLabel, FormLabel, Input, InputLabel, ListItemText, MenuItem, OutlinedInput, Radio, RadioGroup, Select, Typography } from '@material-ui/core';
+import { Checkbox, FormControl, FormControlLabel, FormLabel, Input, InputLabel, ListItemText, MenuItem, OutlinedInput, Radio, RadioGroup, Select } from '@material-ui/core';
+import IStudentSignup from '../../interfaces/IStudentSignup';
 
 const useStyles = makeStyles((theme) => ({
     field: {
@@ -43,12 +44,7 @@ interface StudentPDProps {
     handleEducationChange: any;
     handleLanguageChange: any;
     handleRadio: ChangeEventHandler;
-    state: {
-        name: string,
-        gender: string,
-        education: string,
-        language: string[],
-    };
+    state: IStudentSignup;
 }
 
 export default function StudentPDForm(props: StudentPDProps) {
@@ -102,8 +98,8 @@ export default function StudentPDForm(props: StudentPDProps) {
                 <InputLabel>Preferred Languages</InputLabel>
                 <Select
                     multiple
-                    name="language"
-                    value={props.state.language}
+                    name="languages"
+                    value={props.state.languages}
                     onChange={props.handleLanguageChange}
                     input={<Input />}
                     renderValue={(selected) => (selected as string[]).join(', ')}
@@ -111,7 +107,7 @@ export default function StudentPDForm(props: StudentPDProps) {
                 >
                     {languages.map((lang) => (
                         <MenuItem key={lang} value={lang}>
-                            <Checkbox checked={props.state.language.indexOf(lang) > -1} />
+                            <Checkbox checked={props.state.languages.indexOf(lang) > -1} />
                             <ListItemText primary={lang} />
                         </MenuItem>
                     ))}

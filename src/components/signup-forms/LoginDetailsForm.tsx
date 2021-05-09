@@ -1,8 +1,8 @@
-import React, { ChangeEventHandler, useState } from 'react';
+import { ChangeEventHandler, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { FormControl, InputLabel, InputAdornment, IconButton, Button, OutlinedInput } from '@material-ui/core';
+import { FormControl, InputLabel, InputAdornment, IconButton, OutlinedInput } from '@material-ui/core';
 import { Visibility, VisibilityOff } from '@material-ui/icons';
-import { Redirect } from 'react-router';
+import IStudentSignup from '../../interfaces/IStudentSignup';
 
 const useStyles = makeStyles((theme) => ({
     field: {
@@ -18,17 +18,11 @@ const useStyles = makeStyles((theme) => ({
 
 interface LoginFormProps {
     handleChange: ChangeEventHandler;
-    state: {
-        email: string;
-        password: string;
-        password_confirmation: string;
-    };
+    state: IStudentSignup;
 }
 
 export default function LoginForm(props: LoginFormProps) {
     const classes = useStyles();
-
-    // const [loginErrors, setLoginErrors] = useState();
 
     const [passwordShown, setPasswordShown] = useState(false);
     const [passwordConfirmationShown, setPasswordConfirmationShown] = useState(false);
@@ -43,51 +37,50 @@ export default function LoginForm(props: LoginFormProps) {
 
     return (
         <div>
-            <form noValidate autoComplete="off">
-                <FormControl className={classes.field} variant="outlined">
-                    <InputLabel className={classes.input}>Email</InputLabel>
-                    <OutlinedInput className={classes.input} id="email" aria-describedby="Email field" label="Email"
-                        onChange={props.handleChange}
-                        value={props.state.email}
-                    />
-                </FormControl> <br />
-                <FormControl className={classes.field} variant="outlined">
-                    <InputLabel className={classes.input}>Password</InputLabel>
-                    <OutlinedInput className={classes.input} id="password" aria-describedby="Password field" label="Password"
-                        type={passwordShown ? "text" : "password"}
-                        endAdornment={
-                            <InputAdornment position="end">
-                                <IconButton
-                                    aria-label="toggle password visibility"
-                                    onClick={togglePasswordVisibility}
-                                    name="passwordToggle"
-                                >
-                                    {passwordShown ? <Visibility /> : <VisibilityOff />}
-                                </IconButton>
-                            </InputAdornment>}
-                        onChange={props.handleChange}
-                        value={props.state.password}
-                    />
-                </FormControl> <br />
-                <FormControl className={classes.field} variant="outlined">
-                    <InputLabel className={classes.input}>Re-enter Password</InputLabel>
-                    <OutlinedInput className={classes.input} id="password_confirmation" aria-describedby="Password confirmation field" label="Re-enterPassword"
-                        type={passwordConfirmationShown ? "text" : "password"}
-                        endAdornment={
-                            <InputAdornment position="end">
-                                <IconButton
-                                    aria-label="toggle password visibility"
-                                    onClick={togglePasswordConfirmationVisibility}
-                                    name="passwordConfirmationToggle"
-                                >
-                                    {passwordConfirmationShown ? <Visibility /> : <VisibilityOff />}
-                                </IconButton>
-                            </InputAdornment>}
-                        onChange={props.handleChange}
-                        value={props.state.password_confirmation}
-                    />
-                </FormControl> <br />
-            </form>
+            <FormControl className={classes.field} variant="outlined">
+                <InputLabel className={classes.input}>Email</InputLabel>
+                <OutlinedInput className={classes.input} id="email" aria-describedby="Email field" label="Email"
+                    onChange={props.handleChange}
+                    value={props.state.email}
+                    required
+                />
+            </FormControl> <br />
+            <FormControl className={classes.field} variant="outlined">
+                <InputLabel className={classes.input}>Password</InputLabel>
+                <OutlinedInput className={classes.input} id="password" aria-describedby="Password field" label="Password"
+                    type={passwordShown ? "text" : "password"}
+                    endAdornment={
+                        <InputAdornment position="end">
+                            <IconButton
+                                aria-label="toggle password visibility"
+                                onClick={togglePasswordVisibility}
+                                name="passwordToggle"
+                            >
+                                {passwordShown ? <Visibility /> : <VisibilityOff />}
+                            </IconButton>
+                        </InputAdornment>}
+                    onChange={props.handleChange}
+                    value={props.state.password}
+                />
+            </FormControl> <br />
+            <FormControl className={classes.field} variant="outlined">
+                <InputLabel className={classes.input}>Re-enter Password</InputLabel>
+                <OutlinedInput className={classes.input} id="password_confirmation" aria-describedby="Password confirmation field" label="Re-enterPassword"
+                    type={passwordConfirmationShown ? "text" : "password"}
+                    endAdornment={
+                        <InputAdornment position="end">
+                            <IconButton
+                                aria-label="toggle password visibility"
+                                onClick={togglePasswordConfirmationVisibility}
+                                name="passwordConfirmationToggle"
+                            >
+                                {passwordConfirmationShown ? <Visibility /> : <VisibilityOff />}
+                            </IconButton>
+                        </InputAdornment>}
+                    onChange={props.handleChange}
+                    value={props.state.password_confirmation}
+                />
+            </FormControl> <br />
         </div>
     )
 }

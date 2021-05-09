@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import SignupForm from '../components/SignupForm';
 import AuthHeader from '../components/AuthHeader';
 import NaviBar from '../components/NaviBar';
 import { Button } from '@material-ui/core';
@@ -50,10 +49,10 @@ export default function SignupPage() {
             <div style={{ marginTop: '5px' }}>Are you a</div>
             <Button variant="contained" color="primary" className={classes.button} onClick={studentRedirect}>
                 Student
-                </Button>
+            </Button>
             <Button variant="contained" color="secondary" className={classes.button} onClick={tutorRedirect}>
                 Tutor
-                </Button>
+            </Button>
         </div>
     )
 }

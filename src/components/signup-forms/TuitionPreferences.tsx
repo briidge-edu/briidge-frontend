@@ -1,6 +1,8 @@
 import React, { ChangeEventHandler } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Checkbox, FormControl, FormControlLabel, FormGroup, FormLabel, InputLabel, MenuItem, Radio, RadioGroup, Select, TextField } from '@material-ui/core';
+import { Checkbox, Chip, FormControl, FormControlLabel, FormGroup, FormLabel, InputLabel, MenuItem, Radio, RadioGroup, Select, TextField } from '@material-ui/core';
+import { Autocomplete } from '@material-ui/lab';
+import IStudentSignup from '../../interfaces/IStudentSignup';
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
@@ -19,6 +21,10 @@ const useStyles = makeStyles((theme) => ({
         flexDirection: 'column'
     },
 
+    autocomplete: {
+        width: '400px'
+    },
+
     priceRange: {
         minWidth: '300px',
         textAlign: 'center',
@@ -28,18 +34,18 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const levels = ['Primary', 'Secondary', 'Junior College']
-const tertiaryLevels = ['Polytechnic', 'ITE', 'University']
-const subjects = [['Insert primary subject', 'Insert primary subject', 'Insert primary subject', 'Insert primary subject',],
-['Insert secondary subject', 'Insert secondary subject', 'Insert secondary subject', 'Insert secondary subject'],
-['Insert JC subject', 'Insert JC subject', 'Insert JC subject', 'Insert JC subject']]
-const priceRanges = ["20-30","30-40","40-50","50-60","60-70","70-80","80-90","90-100","100-110","110-120"]
+const subjects = [['Insert primary subject1', 'Insert primary subject2', 'Insert primary subject3', 'Insert primary subject4',],
+['Insert secondary subject1', 'Insert secondary subject2', 'Insert secondary subject3', 'Insert secondary subject4'],
+['Insert JC subject1', 'Insert JC subject2', 'Insert JC subject3', 'Insert JC subject4']]
+const priceRanges = ["20-30", "30-40", "40-50", "50-60", "60-70", "70-80", "80-90", "90-100", "100-110", "110-120"]
 
 interface PreferencesProps {
     handleRadio: ChangeEventHandler;
     handleSubjectChange: ChangeEventHandler;
+    handleModuleChange: any;
     handleChange: ChangeEventHandler;
     handlePriceChange: any;
-    state: any;
+    state: IStudentSignup;
 }
 
 export default function TuitionPreferences(props: PreferencesProps) {
@@ -49,7 +55,7 @@ export default function TuitionPreferences(props: PreferencesProps) {
         <div>
             <FormControl component="fieldset">
                 <FormLabel component="legend">Preferred Mode of Teaching</FormLabel>
-                <RadioGroup aria-label="gender" name="lesson-mode" value={props.state.lessonMode} onChange={props.handleRadio}>
+                <RadioGroup aria-label="lessonMode" name="lessonMode" value={props.state.lessonMode} onChange={props.handleRadio}>
                     <FormControlLabel value="f2f" control={<Radio />} label="Face-to-Face" />
                     <FormControlLabel value="online" control={<Radio />} label="Online" />
                 </RadioGroup>
@@ -61,7 +67,7 @@ export default function TuitionPreferences(props: PreferencesProps) {
                         <FormGroup>
                             {subjects[subjects.indexOf(group)].map(sub =>
                                 <FormControlLabel
-                                    control={<Checkbox checked={props.state[sub]}
+                                    control={<Checkbox checked={props.state.subjects.includes(sub)}
                                         disabled={props.state.education !== levels[subjects.indexOf(group)]}
                                         onChange={props.handleSubjectChange}
                                         name={sub} />}
@@ -70,29 +76,40 @@ export default function TuitionPreferences(props: PreferencesProps) {
                         </FormGroup>
                     </FormControl>
                 )}
-
-                <div className={classes.tertiaryContainer}>
-                    {tertiaryLevels.map(x => <FormControl component="fieldset" className={classes.formControl}>
-                        <FormLabel component="legend">{x}</FormLabel>
-                        <TextField
-                            id={x + 'Module'} value={props.state.module} label="Module Code" variant="outlined"
-                            disabled={props.state.education !== x}
-                            onChange={props.handleChange} />
-                    </FormControl>)}
-                </div>
             </div>
+
+            <FormControl component="fieldset" className={classes.formControl}>
+                <FormLabel component="legend">For Polytechnics, ITE and Universities</FormLabel>
+                <Autocomplete
+                    className={classes.autocomplete}
+                    multiple
+                    disabled={levels.includes(props.state.education)}
+                    id="tags-filled"
+                    options={[]}
+                    defaultValue={[]}
+                    freeSolo
+                    renderTags={(value: string[], getTagProps) =>
+                        value.map((option: string, index: number) => (
+                            <Chip variant="outlined" label={option} {...getTagProps({ index })} />
+                        ))
+                    }
+                    renderInput={(params) => (
+                        <TextField {...params} variant="filled" label="Module Codes" placeholder="Type a module code, then press Enter" />
+                    )}
+                    onChange={props.handleModuleChange}
+                />
+            </FormControl> <br />
             <FormControl variant="outlined" className={classes.priceRange}>
                 <InputLabel>Price Range / h</InputLabel>
                 <Select
-                    name="unparsedPriceRange"
-                    value={props.state.unparsedPriceRange}
+                    name="priceRange"
+                    value={props.state.priceRange}
                     onChange={(props.handlePriceChange)}
                     label="Price Range / h"
                 >
                     {priceRanges.map(range => <MenuItem value={range}>{range}</MenuItem>)}
                 </Select>
             </FormControl> <br />
-
         </div>
     )
 }

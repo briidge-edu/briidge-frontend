@@ -1,6 +1,7 @@
-import React, { ChangeEventHandler } from 'react';
+import { ChangeEventHandler } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Checkbox, FormControl, FormControlLabel, FormGroup, FormLabel } from '@material-ui/core';
+import IStudentSignup from '../../interfaces/IStudentSignup';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -13,12 +14,9 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const areas = ['Central', 'East', 'West', 'North', 'North-East']
-const locations = [['Bishan', 'Bukit_Merah', 'Bukit_Timah', 'Geylang', 'Kallang', 'Marine_Parade', 'Novena', 'Queenstown', 'Southern_Islands', 'Tanglin', 'Toa_Payoh'], ['Bedok', 'Changi', 'Pasir_Ris', 'Tampines', 'Paya_Lebar'], ['Boon_Lay', 'Bukit_Batok', 'Bukit_Panjang', 'Choa_Chu_Kang', 'Clementi', 'Jurong_East', 'Jurong_West', 'Pioneer', 'Tengah', 'Tuas', 'Western_Islands'], ['Lim_Chu_Kang', 'Mandai', 'Sembawang', 'Simpang', 'Sungei_Kadut', 'Woodlands', 'Yishun'], ['Ang_Mo_Kio', 'Hougang', 'North_Eastern_Islands', 'Punggol', 'Seletar', 'Sengkang', 'Serangoon']]
-
 interface LocationProps {
     handleLocationChange: ChangeEventHandler;
-    state: any;
+    state: IStudentSignup;
 }
 
 export default function LocationForm(props: LocationProps) {
@@ -32,8 +30,8 @@ export default function LocationForm(props: LocationProps) {
                     <FormGroup>
                         {locations[locations.indexOf(group)].map(loc =>
                             <FormControlLabel
-                                control={<Checkbox checked={props.state[loc]} onChange={props.handleLocationChange} name={loc} />}
-                                label={loc.replaceAll('_', ' ')}
+                                control={<Checkbox checked={props.state.locations.includes(loc)} onChange={props.handleLocationChange} name={loc} />}
+                                label={loc}
                             />)}
                     </FormGroup>
                 </FormControl>
@@ -41,3 +39,10 @@ export default function LocationForm(props: LocationProps) {
         </div>
     )
 }
+
+const areas = ['Central', 'East', 'West', 'North', 'North-East']
+const locations = [['Bishan', 'Bukit Merah', 'Bukit Timah', 'Geylang', 'Kallang', 'Marine Parade', 'Novena', 'Queenstown', 'Southern Islands', 'Tanglin', 'Toa Payoh'], 
+    ['Bedok', 'Changi', 'Pasir Ris', 'Tampines', 'Paya Lebar'], 
+    ['Boon Lay', 'Bukit Batok', 'Bukit Panjang', 'Choa Chu Kang', 'Clementi', 'Jurong East', 'Jurong West', 'Pioneer', 'Tengah', 'Tuas', 'Western Islands'], 
+    ['Lim Chu Kang', 'Mandai', 'Sembawang', 'Simpang', 'Sungei Kadut', 'Woodlands', 'Yishun'], 
+    ['Ang Mo Kio', 'Hougang', 'North Eastern Islands', 'Punggol', 'Seletar', 'Sengkang', 'Serangoon']]
