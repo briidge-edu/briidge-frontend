@@ -38,7 +38,7 @@ export default function SignupPage() {
         if (student) {
             return <Redirect to='/studentsignup' />
         } else {
-            return <Redirect to='/studentsignup' />
+            return <Redirect to='/tutorsignup' />
         }
     }
 

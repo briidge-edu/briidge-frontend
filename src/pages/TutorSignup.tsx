@@ -4,10 +4,10 @@ import AuthHeader from '../components/AuthHeader'
 import { Button, Step, StepLabel, Stepper } from '@material-ui/core';
 import NaviBar from '../components/NaviBar';
 import LoginDetailForm from '../components/signup-forms/LoginDetailsForm';
-import StudentPDForm from '../components/signup-forms/StudentPDForm';
+import TutorPDForm from '../components/signup-forms/TutorPDForm';
 import LocationForm from '../components/signup-forms/LocationForm';
-import TuitionPreferencesForm from '../components/signup-forms/StudentTuitionPreferences';
-import StudentConfirmation from '../components/signup-forms/StudentConfirmation';
+import TuitionPreferencesForm from '../components/signup-forms/TutorTuitionPreferences';
+import TutorConfirmation from '../components/signup-forms/TutorConfirmation';
 import update from 'immutability-helper';
 
 const useStyles = makeStyles((theme) => ({
@@ -34,7 +34,7 @@ function getSteps() {
     return ['Login Details', 'Personal Details', 'Location Preferences', 'Tutoring Preferences', 'Confirmation'];
 }
 
-export default function StudentSignup() {
+export default function TutorSignup() {
     const classes = useStyles();
 
     const [activeStep, setActiveStep] = useState(0);
@@ -52,7 +52,7 @@ export default function StudentSignup() {
             case 0: return isEmptyString(state.email, state.password, state.password_confirmation);
             case 1: return isEmptyString(state.name, state.gender, state.education) || state.languages.length === 0;
             case 2: return state.locations.length === 0;
-            case 3: return isEmptyString(state.lessonMode, state.priceRange) || state.subjects.length === 0;
+            case 3: return isEmptyString(state.lessonMode) || state.subjects.length === 0 || !state.priceRange;
         }
     }
 
@@ -66,12 +66,13 @@ export default function StudentSignup() {
         gender: "",
         education: "",
         languages: [],
+        bio: "",
         // Step 3 - LocationForm
         locations: [],
         // Step 4
         lessonMode: '',
         subjects: [],
-        priceRange: '',
+        priceRange: null,
     });
 
     const handleBack = () => {
@@ -141,7 +142,7 @@ export default function StudentSignup() {
             case 0:
                 return <LoginDetailForm state={state} handleChange={handleChange} />
             case 1:
-                return <StudentPDForm state={state} handleChange={handleChange}
+                return <TutorPDForm state={state} handleChange={handleChange}
                     handleEducationChange={handleSelect}
                     handleLanguageChange={handleSelect}
                     handleRadio={handleRadio} />
@@ -155,7 +156,7 @@ export default function StudentSignup() {
                     handleChange={handleChange}
                     handlePriceChange={handleSelect} />
             case 4:
-                return <StudentConfirmation state={state} />
+                return <TutorConfirmation state={state} />
         }
     }
 
@@ -164,7 +165,7 @@ export default function StudentSignup() {
     return (
         <form className={classes.root} onSubmit={handleSubmit}>
             <NaviBar />
-            <AuthHeader text="Student Sign-Up" />
+            <AuthHeader text="Tutor Sign-Up" />
             <Stepper activeStep={activeStep} alternativeLabel>
                 {steps.map((label) => (
                     <Step key={label}>

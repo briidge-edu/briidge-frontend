@@ -1,5 +1,5 @@
 import { makeStyles } from '@material-ui/core/styles';
-import IStudentSignup from '../../interfaces/IStudentSignup';
+import ITutorSignup from '../../interfaces/ITutorSignup';
 import { FormControl, Input, InputLabel } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
@@ -14,11 +14,11 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-interface StudentConfirmationProps {
-    state: IStudentSignup;
+interface TutorConfirmationProps {
+    state: ITutorSignup;
 }
 
-export default function StudentConfirmation(props: StudentConfirmationProps) {
+export default function TutorConfirmation(props: TutorConfirmationProps) {
     const classes = useStyles();
 
     return (
@@ -49,6 +49,12 @@ export default function StudentConfirmation(props: StudentConfirmationProps) {
             </div>
             <div className={classes.row}>
                 <FormControl className={classes.field} style={{ width: '350px' }}>
+                    <InputLabel>Bio</InputLabel>
+                    <Input fullWidth defaultValue={props.state.bio} disabled multiline />
+                </FormControl>
+            </div>
+            <div className={classes.row}>
+                <FormControl className={classes.field} style={{ width: '350px' }}>
                     <InputLabel>Preferred Locations</InputLabel>
                     <Input fullWidth defaultValue={props.state.locations} disabled />
                 </FormControl>
@@ -56,7 +62,7 @@ export default function StudentConfirmation(props: StudentConfirmationProps) {
             <div className={classes.row}>
                 <FormControl className={classes.field}>
                     <InputLabel>Preferred Mode</InputLabel>
-                    <Input defaultValue={props.state.lessonMode === 'f2f' ? 'Face-to-face' : 'Online'} disabled />
+                    <Input defaultValue={props.state.lessonMode} disabled />
                 </FormControl>
                 <FormControl className={classes.field}>
                     <InputLabel>Subjects / Modules</InputLabel>
