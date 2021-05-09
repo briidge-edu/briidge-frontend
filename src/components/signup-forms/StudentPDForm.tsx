@@ -93,6 +93,7 @@ export default function StudentPDForm(props: StudentPDProps) {
                 <InputLabel>Preferred Languages</InputLabel>
                 <Select
                     multiple
+                    name="language"
                     value={props.state.language}
                     onChange={props.handleLanguageChange}
                     input={<Input />}

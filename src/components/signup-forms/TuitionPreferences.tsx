@@ -84,6 +84,7 @@ export default function TuitionPreferences(props: PreferencesProps) {
             <FormControl variant="outlined" className={classes.priceRange}>
                 <InputLabel>Price Range / h</InputLabel>
                 <Select
+                    name="unparsedPriceRange"
                     value={props.state.unparsedPriceRange}
                     onChange={(props.handlePriceChange)}
                     label="Price Range / h"
