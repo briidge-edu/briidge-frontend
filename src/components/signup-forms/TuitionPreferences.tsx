@@ -70,6 +70,7 @@ export default function TuitionPreferences(props: PreferencesProps) {
                                     control={<Checkbox checked={props.state.subjects.includes(sub)}
                                         disabled={props.state.education !== levels[subjects.indexOf(group)]}
                                         onChange={props.handleSubjectChange}
+                                        key={sub}
                                         name={sub} />}
                                     label={sub.replaceAll('_', ' ')}
                                 />)}

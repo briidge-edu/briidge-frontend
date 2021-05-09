@@ -31,7 +31,7 @@ export default function LocationForm(props: LocationProps) {
                         {locations[locations.indexOf(group)].map(loc =>
                             <FormControlLabel
                                 control={<Checkbox checked={props.state.locations.includes(loc)} onChange={props.handleLocationChange} name={loc} />}
-                                label={loc}
+                                label={loc} key={loc}
                             />)}
                     </FormGroup>
                 </FormControl>

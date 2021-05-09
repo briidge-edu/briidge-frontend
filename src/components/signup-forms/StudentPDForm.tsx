@@ -74,7 +74,7 @@ export default function StudentPDForm(props: StudentPDProps) {
                     onChange={(props.handleEducationChange)}
                     label="Level of Education"
                 >
-                    {eduLevels.map(lvl => <MenuItem value={lvl}>{lvl}</MenuItem>)}
+                    {eduLevels.map(lvl => <MenuItem value={lvl} key={lvl}>{lvl}</MenuItem>)}
                 </Select>
             </FormControl> <br />
             {/* <div className={classes.upload}>
