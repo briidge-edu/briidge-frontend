@@ -56,8 +56,8 @@ export default function TuitionPreferences(props: PreferencesProps) {
             <FormControl component="fieldset">
                 <FormLabel component="legend">Preferred Mode of Teaching</FormLabel>
                 <RadioGroup aria-label="lessonMode" name="lessonMode" value={props.state.lessonMode} onChange={props.handleRadio}>
-                    <FormControlLabel value="f2f" control={<Radio />} label="Face-to-Face" />
-                    <FormControlLabel value="online" control={<Radio />} label="Online" />
+                    <FormControlLabel value="Face-to-Face" control={<Radio />} label="Face-to-Face" />
+                    <FormControlLabel value="Online" control={<Radio />} label="Online" />
                 </RadioGroup>
             </FormControl>
             <div className={classes.subjectsContainer}>
@@ -72,7 +72,7 @@ export default function TuitionPreferences(props: PreferencesProps) {
                                         onChange={props.handleSubjectChange}
                                         key={sub}
                                         name={sub} />}
-                                    label={sub.replaceAll('_', ' ')}
+                                    label={sub}
                                 />)}
                         </FormGroup>
                     </FormControl>

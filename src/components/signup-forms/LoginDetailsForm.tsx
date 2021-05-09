@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { FormControl, InputLabel, InputAdornment, IconButton, OutlinedInput } from '@material-ui/core';
 import { Visibility, VisibilityOff } from '@material-ui/icons';
 import IStudentSignup from '../../interfaces/IStudentSignup';
+import ITutorSignup from '../../interfaces/ITutorSignup';
 
 const useStyles = makeStyles((theme) => ({
     field: {
@@ -18,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
 
 interface LoginFormProps {
     handleChange: ChangeEventHandler;
-    state: IStudentSignup;
+    state: IStudentSignup | ITutorSignup;
 }
 
 export default function LoginForm(props: LoginFormProps) {
@@ -43,6 +44,7 @@ export default function LoginForm(props: LoginFormProps) {
                     onChange={props.handleChange}
                     value={props.state.email}
                     required
+                    type="email"
                 />
             </FormControl> <br />
             <FormControl className={classes.field} variant="outlined">
