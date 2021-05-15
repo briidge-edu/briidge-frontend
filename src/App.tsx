@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Homepage from './pages/Homepage';
+import AboutUs from './pages/AboutUs';
 import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
 import StudentSignup from './pages/StudentSignup';
@@ -34,6 +35,9 @@ function App() {
         </Route>
         <Route path="/planspage">
           <PlansPage />
+        </Route>
+        <Route path="/aboutus">
+          <AboutUs />
         </Route>
         <Route path="/tutors">
           <TutorsPage />

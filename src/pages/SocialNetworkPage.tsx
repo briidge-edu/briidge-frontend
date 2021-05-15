@@ -1,7 +1,7 @@
 import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import NaviBar from "../components/NaviBar";
-import './Homepage.css';
+import './AboutUs.css';
 // import { Button, ButtonBase } from "@material-ui/core";
 // import { Link } from 'react-router-dom';
 // import { FullscreenExitTwoTone } from "@material-ui/icons";

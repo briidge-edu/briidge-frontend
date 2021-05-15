@@ -38,8 +38,8 @@ const NaviBar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
-                <Nav.Link className={classes.fontNav} as={Link} to="./PlansPage">Our Plans</Nav.Link>
-                <Nav.Link className={classes.fontNav} as={Link} to="#href">About Us</Nav.Link>
+                <Nav.Link className={classes.fontNav} as={Link} to="./planspage">Our Plans</Nav.Link>
+                <Nav.Link className={classes.fontNav} as={Link} to="./aboutus">About Us</Nav.Link>
                 <Nav.Link className={classes.fontNav} as={Link} to="./tutors">Our Tutors</Nav.Link>
                 <Nav.Link className={classes.fontNav} as={Link} to="./SocialNetworkPage">Social Network</Nav.Link>
                 <Nav.Link className={classes.fontNav} as={Link} to="#href">FAQs</Nav.Link>
