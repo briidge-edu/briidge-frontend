@@ -67,32 +67,31 @@ const useStyles = makeStyles((theme) => ({
     },
 
     multilineColumn: {
-        marginTop: '-10%',
-        '@media (max-width: 1100px)': {
-            marginTop: '0'
-        },
         flex: 1,
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'space-evenly'
+        paddingTop: 120
     },
 
     multiline: {
         maxWidth: '100%',
         display: 'flex',
         justifyContent: 'space-between',
-        alignItems: 'center'
+        alignItems: 'center',
+        margin: 15
     },
 
     multilineIcon: {
-        height: '100%',
-        width: '10%',
-        alignSelf: 'flex-start'
+        height: 120,
+        width: 120,
+        alignSelf: 'flex-start',
+        marginLeft: '5%'
     },
 
     checkmark: {
-        height: '60%',
-        width: '8%',
+        height: 70,
+        width: 70,
+        marginRight: '5%'
     },
 
     premiumSubscriberText: {
@@ -188,12 +187,12 @@ const AboutUs = () => {
 
                 <div className={classes.multilineColumn}>
                     <h2 className={classes.multiline}>
-                        <img className={classes.multilineIcon} src={vision1} alt="vision1" />
+                        <img className={classes.multilineIcon} src={vision2} alt="vision1" />
                         <span>Affordability</span>
                         <img className={classes.checkmark} src={checkmark} alt="checkmark" />
                     </h2>
                     <h2 className={classes.multiline}>
-                        <img className={classes.multilineIcon} src={vision2} alt="vision2" />
+                        <img className={classes.multilineIcon} src={vision1} alt="vision2" />
                         <span >Flexibility</span>
                         <img className={classes.checkmark} src={checkmark} alt="checkmark" />
                     </h2>
