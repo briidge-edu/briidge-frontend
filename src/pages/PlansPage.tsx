@@ -13,8 +13,7 @@ const useStyles = makeStyles((theme) => ({
     row: {
         display: "flex",
         justifyContent: "space-between",
-        padding: 30,
-        paddingBottom: 100,
+        padding: 0,
         '@media (max-width: 1100px)': {
             flexDirection: "column",
         }
@@ -39,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
         fontFamily:"LeagueSpartan",
         fontSize:30,
         color: "#0051FF",
-        paddingTop: 100,
+        paddingTop: 83,
         paddingLeft: "5%",
         paddingRight: "5%"
     },
