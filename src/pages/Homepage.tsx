@@ -1,12 +1,20 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import NaviBar from "../components/NaviBar";
-import wordLogo from "../Shared/BriidgeWordLogo.png";
+import wordLogo from "../Shared/BriidgeWordLogo2.png";
 import how1 from "../Shared/Tutor.png";
 import how2 from "../Shared/Match.png";
 import how3 from "../Shared/Date.png";
+import homepage1 from "../Shared/homepage/homepage1.png";
+import homepage2 from "../Shared/homepage/homepage2.png";
+import homepage3 from "../Shared/homepage/homepage3.png";
+import homepage4 from "../Shared/homepage/homepage4.png";
+import homepage5 from "../Shared/homepage/homepage5.png";
+import book from "../Shared/book.png";
+import earth from "../Shared/earth.png";
+import heart from "../Shared/heart.png";
 import StuNet from "../Shared/StuNet.png";
-import avatar from "../Shared/avatar.jpg";
+import avatar from "../Shared/avatar.png";
 import Schedule from "../Shared/Schedule.png";
 import Tutor2 from "../Shared/Tutor2.png";
 import { Button } from "@material-ui/core";
@@ -36,14 +44,14 @@ const useStyles = makeStyles((theme) => ({
   },
 
   img: {
-    maxHeight: 100,
-    maxWidth: 100,
+    maxHeight: 150,
+    maxWidth: 150,
     margin: 15,
   },
 
   bridgeMainImg: {
-    maxWidth: "40%",
-    maxHeight: "40%",
+    maxWidth: 400,
+    maxHeight: 400,
   },
 
   header: {
@@ -68,22 +76,26 @@ const useStyles = makeStyles((theme) => ({
   supertitle: {
     width: "100%",
     textAlign: "center",
-    margin: "80px 0 0 0",
+    margin: "60px 0 60px 0",
     color: "#FFF",
+    fontSize: 35,
+    fontFamily: "Quicksand-Bold",
   },
 
   featuretitle: {
     width: "100%",
     textAlign: "center",
-    margin: "50px 0 20px 0",
+    margin: "40px 0 20px 0",
     color: "#ffdf00",
   },
 
   subtitle: {
+    marginTop: 70,
+    marginBottom: -30,
     width: "100%",
     textAlign: "center",
-    margin: "0 0 0 20",
     color: "#ffdf00",
+    fontFamily: "Quicksand-Bold",
   },
 
   howFlex: {
@@ -92,7 +104,7 @@ const useStyles = makeStyles((theme) => ({
 
   howFlex2: {
     display: "flex",
-    marginLeft:60,
+    marginLeft: 60,
     marginRight: 60,
     marginTop: 40,
     marginBottom: 40,
@@ -105,7 +117,7 @@ const useStyles = makeStyles((theme) => ({
 
   flexContainer2: {
     flex: 1,
-    textAlign: "center"
+    textAlign: "center",
   },
 
   // For page 2
@@ -163,7 +175,6 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "20px",
     fontFamily: "Quicksand-Bold",
     padding: "5px 19px 5px 19px",
-    marginTop: 5,
   },
 
   btn2: {
@@ -191,7 +202,7 @@ const useStyles = makeStyles((theme) => ({
     width: 1100,
     display: "flex",
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
   },
 
   slidertext: {
@@ -203,7 +214,7 @@ const useStyles = makeStyles((theme) => ({
     margin: 40,
     height: 300,
     width: 280,
-    marginLeft: 60
+    marginLeft: 60,
   },
   name: {
     fontSize: 40,
@@ -240,6 +251,44 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: 45,
     paddingTop: 15,
     color: "#ffdf00",
+  },
+  homepageimgleft: {
+    position: "absolute",
+    align: "left",
+    top: 130,
+    left: -160,
+    height: 200,
+    width: 390,
+  },
+  homepageimgright: {
+    position: "absolute",
+    align: "right",
+    top: 330,
+    right: -190,
+    height: 200,
+    width: 390,
+  },
+  homepageimgleftcurly: {
+    position: "absolute",
+    align: "left",
+    left: -20,
+    height: 100,
+    width: 200,
+  },
+  homepageimgrightcurly: {
+    position: "absolute",
+    align: "right",
+    top: 130,
+    right: -20,
+    height: 100,
+    width: 200,
+  },
+
+  homepageimg: {
+    height: 60,
+    width: 130,
+    marginTop: 50,
+    marginBottom: -60,
   },
 }));
 
@@ -285,9 +334,22 @@ const Homepage = () => {
     <div>
       <NaviBar />
       <div className={classes.row} style={{ backgroundColor: "#0051FF" }}>
-        <h2 className={classes.supertitle}>
+        <div className={classes.supertitle}>
           Learn from the tutor of your choice today!
-        </h2>
+        </div>
+
+        <div>
+          <img
+            src={homepage1}
+            alt="design1"
+            className={classes.homepageimgleft}
+          />
+          <img
+            src={homepage5}
+            alt="design5"
+            className={classes.homepageimgrightcurly}
+          />
+        </div>
 
         <img
           src={wordLogo}
@@ -295,7 +357,21 @@ const Homepage = () => {
           className={classes.bridgeMainImg}
         />
 
-        <h3 className={classes.subtitle}>Learn your way! Meet your goals!</h3>
+        <div>
+          <img
+            src={homepage4}
+            alt="design4"
+            className={classes.homepageimgright}
+          />
+          <img
+            src={homepage2}
+            alt="design2"
+            className={classes.homepageimgleftcurly}
+          />
+        </div>
+
+        <h4 className={classes.subtitle}>Learn your way! Meet your goals!</h4>
+        <img src={homepage3} alt="design3" className={classes.homepageimg} />
       </div>
 
       <div className={classes.row}>
@@ -524,7 +600,7 @@ const Homepage = () => {
         <div className={classes.howFlex}>
           <div className={classes.flexContainer}>
             <div className={classes.bigblueTitle}>Our Mission</div>
-            <img src={how1} alt="how1" className={classes.img} />
+            <img src={book} alt="how1" className={classes.img} />
 
             <div className={classes.belowBlueTitle}>
               Our platform connects students to their preferred tutors based on
@@ -535,17 +611,19 @@ const Homepage = () => {
 
           <div className={classes.flexContainer}>
             <div className={classes.bigblueTitle}>Our Vision</div>
-            <img src={how2} alt="how2" className={classes.img} />
+            <img src={earth} alt="how2" className={classes.img} />
 
             <div className={classes.belowBlueTitle}>
-              tutor matchmaking service. We strive to provide access to quality
+              We aim to be the catalyst of change in the tuition industry
+              worldwide through our convenient and affordable online tutor
+              matchmaking service. We strive to provide access to quality
               education to students worldwide, especially the underprivileged.
             </div>
           </div>
 
           <div className={classes.flexContainer}>
             <div className={classes.bigblueTitle}>Our Social Impact</div>
-            <img src={how3} alt="how3" className={classes.img} />
+            <img src={heart} alt="how3" className={classes.img} />
 
             <div className={classes.belowBlueTitle}>
               We strive to support the underprivileged student community through

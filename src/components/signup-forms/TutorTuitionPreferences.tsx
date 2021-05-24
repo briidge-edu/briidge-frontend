@@ -74,7 +74,7 @@ export default function TuitionPreferences(props: PreferencesProps) {
                                     label={sub}
                                 />)}
                             {/* <FormControl>
-                                <InputLabel>Hourly Rate</InputLabel>
+                                <InputLabel>Hourly Rate (S$)</InputLabel>
                                 <Input disabled={props.state.subjects.filter(s => s.includes(levels[subjects.indexOf(group)])).length === 0}/>
                             </FormControl> */}
                         </FormGroup>
@@ -104,7 +104,7 @@ export default function TuitionPreferences(props: PreferencesProps) {
                 </div>
             </FormControl> <br />
             <FormControl>
-                <InputLabel>Hourly Rate</InputLabel>
+                <InputLabel>Hourly Rate (S$)</InputLabel>
                 <Input type="number" id="priceRange" onChange={props.handleChange} />
             </FormControl>
         </div>

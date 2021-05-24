@@ -101,12 +101,12 @@ export default function TuitionPreferences(props: PreferencesProps) {
                 />
             </FormControl> <br />
             <FormControl variant="outlined" className={classes.priceRange}>
-                <InputLabel>Price Range / h</InputLabel>
+                <InputLabel>Price Range (S$) / h</InputLabel>
                 <Select
                     name="priceRange"
                     value={props.state.priceRange}
                     onChange={(props.handlePriceChange)}
-                    label="Price Range / h"
+                    label="Price Range (S$) / h"
                 >
                     {priceRanges.map(range => <MenuItem value={range}>{range}</MenuItem>)}
                 </Select>

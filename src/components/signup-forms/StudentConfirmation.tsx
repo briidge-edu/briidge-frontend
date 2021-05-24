@@ -63,7 +63,7 @@ export default function StudentConfirmation(props: StudentConfirmationProps) {
                     <Input defaultValue={props.state.subjects} disabled multiline />
                 </FormControl>
                 <FormControl className={classes.field}>
-                    <InputLabel>Price Range</InputLabel>
+                    <InputLabel>Price Range (S$)</InputLabel>
                     <Input defaultValue={props.state.priceRange} disabled />
                 </FormControl>
             </div>
