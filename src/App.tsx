@@ -12,6 +12,7 @@ import TutorsPage from './pages/TutorsPage';
 import SocialNetworkPage from './pages/SocialNetworkPage';
 import { MuiThemeProvider } from '@material-ui/core';
 import briidgeTheme from './themes'
+import StudentDashboard from './pages/StudentDashboard';
 
 function App() {
   return (
@@ -44,6 +45,9 @@ function App() {
         </Route>
         <Route path="/socialnetworkpage">
           <SocialNetworkPage />
+        </Route>
+        <Route path="/studentdashboard">
+          <StudentDashboard />
         </Route>
       </Switch>
     </Router>
