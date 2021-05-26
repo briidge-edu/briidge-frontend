@@ -26,6 +26,10 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#ffdf00",
   },
 
+  firstRow: {
+    height: "100vh"
+  },
+
   row: {
     // display: "flex",
     justifyContent: "space-between",
@@ -287,7 +291,7 @@ const useStyles = makeStyles((theme) => ({
   homepageimg: {
     height: 60,
     width: 130,
-    marginTop: 50,
+    marginTop: 150,
     marginBottom: -50,
   },
 }));
@@ -333,7 +337,7 @@ const Homepage = () => {
   return (
     <div>
       <NaviBar />
-      <div className={classes.row} style={{ backgroundColor: "#0051FF" }}>
+      <div className={`${classes.row} ${classes.firstRow}`} style={{ backgroundColor: "#0051FF" }}>
         <div className={classes.supertitle}>
           Learn from the tutor of your choice today!
         </div>

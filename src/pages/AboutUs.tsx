@@ -15,12 +15,14 @@ import "./AboutUs.css";
 import { findByLabelText } from "@testing-library/dom";
 
 const useStyles = makeStyles((theme) => ({
+  firstRow: {
+    height: "100vh",
+  },
+
   row: {
     display: "flex",
-    height: "100%",
     "@media (max-width: 1100px)": {
       flexDirection: "column",
-      height: "100%",
     },
   },
 
@@ -78,7 +80,6 @@ const useStyles = makeStyles((theme) => ({
   },
 
   multiline: {
-    maxWidth: "100%",
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
@@ -151,7 +152,7 @@ const AboutUs = () => {
   return (
     <div>
       <NaviBar />
-      <div className={classes.row}>
+      <div className={`${classes.row} ${classes.firstRow}`}>
         <div className={classes.column} style={{ backgroundColor: "#0051FF" }}>
           <img src={wordLogo} alt="Briidge Word Logo" className={classes.img} />
         </div>
