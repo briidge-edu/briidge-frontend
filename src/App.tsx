@@ -15,6 +15,7 @@ import briidgeTheme from './themes'
 import StudentDashboard from './pages/StudentDashboard';
 import BookingSummary from './pages/BookingSummary';
 import BookingConfirmation from './pages/BookingConfirmation';
+import LessonBooking from './pages/LessonBooking';
 
 function App() {
   return (
@@ -56,6 +57,9 @@ function App() {
         </Route>
         <Route path="/bookingconfirmation">
           <BookingConfirmation />
+        </Route>
+        <Route path="/lessonbooking">
+          <LessonBooking />
         </Route>
       </Switch>
     </Router>

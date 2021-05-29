@@ -12,7 +12,8 @@ const useStyles = makeStyles((theme) => ({
     },
 
     input: {
-        fontFamily: 'LeagueSpartan'
+        fontFamily: 'LeagueSpartan',
+        color: "primary"
     },
 
     icon: {
