@@ -1,8 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import logo from "../Shared/BriidgeIconTransparent.png";
-import MailOutlineIcon from "@material-ui/icons/MailOutline";
-import AccountCircleIcon from "@material-ui/icons/AccountCircle";
+import TopBar from "../components/TopBar";
 import { Typography, Button } from "@material-ui/core";
 import image from "../Shared/tutor.jpeg";
 
@@ -16,25 +14,12 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "row",
     padding: 20,
   },
-  topBar: {
-    height: "60px",
-    backgroundColor: "#0051FF",
-    color: "#ffdf00",
-    fontFamily: "LeagueSpartan",
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    fontSize: 30,
-  },
   header: {
     marginTop: "2%",
     textAlign: "center",
     fontFamily: "Quicksand-Bold",
     color: "#0051ff",
     fontSize: 35,
-  },
-  icon: {
-    marginRight: "20px",
   },
   image: {
     borderRadius: "50%",
@@ -113,7 +98,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "flex-end",
     marginTop: -25,
-    marginBottom: 20
+    marginBottom: 20,
   },
 }));
 
@@ -122,18 +107,7 @@ export default function BookingSummary() {
 
   return (
     <div className={classes.maincontainer}>
-      <div className={classes.topBar}>
-        <img
-          src={logo}
-          alt="Briidge Logo"
-          width="50"
-          height="35"
-          style={{ margin: 15 }}
-        />
-        <div style={{ margin: "0 auto" }}>Welcome, John Doe!</div>
-        <MailOutlineIcon className={classes.icon} fontSize="large" />
-        <AccountCircleIcon className={classes.icon} fontSize="large" />
-      </div>
+      <TopBar />
       <div className={classes.container}>
         <div>
           <h3 className={classes.headerx}>Booking Summary</h3>
@@ -199,7 +173,7 @@ export default function BookingSummary() {
           <h3 className={classes.headerx}>Payment Summary</h3>
           <div className={classes.rightdiv}>
             <div>
-              <div style = {{marginBottom: 165}}>
+              <div style={{ marginBottom: 165 }}>
                 <div>Total</div>
                 <div className={classes.rightmoney}>SGD 35</div>
 
@@ -207,10 +181,18 @@ export default function BookingSummary() {
                 <div className={classes.rightmoney}>SGD 2.45</div>
               </div>
               <div>
-                <div className={classes.borderline} style = {{marginBottom: 20}} />
+                <div
+                  className={classes.borderline}
+                  style={{ marginBottom: 20 }}
+                />
 
-                <div style = {{fontSize: 18}}>Total Amount</div>
-                <div className={classes.rightmoney} style = {{color: '#0051FF', fontSize: 20, marginTop: -30}}>SGD 37.45</div>
+                <div style={{ fontSize: 18 }}>Total Amount</div>
+                <div
+                  className={classes.rightmoney}
+                  style={{ color: "#0051FF", fontSize: 20, marginTop: -30 }}
+                >
+                  SGD 37.45
+                </div>
                 <div className={classes.borderline} />
               </div>
             </div>
