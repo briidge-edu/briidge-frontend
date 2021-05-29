@@ -13,6 +13,8 @@ import SocialNetworkPage from './pages/SocialNetworkPage';
 import { MuiThemeProvider } from '@material-ui/core';
 import briidgeTheme from './themes'
 import StudentDashboard from './pages/StudentDashboard';
+import BookingSummary from './pages/BookingSummary';
+import BookingConfirmation from './pages/BookingConfirmation';
 
 function App() {
   return (
@@ -48,6 +50,12 @@ function App() {
         </Route>
         <Route path="/studentdashboard">
           <StudentDashboard />
+        </Route>
+        <Route path="/bookingsummary">
+          <BookingSummary />
+        </Route>
+        <Route path="/bookingconfirmation">
+          <BookingConfirmation />
         </Route>
       </Switch>
     </Router>
