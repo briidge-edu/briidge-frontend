@@ -10,6 +10,7 @@ import homepage2 from "../Shared/homepage/homepage2.png";
 import homepage3 from "../Shared/homepage/homepage3.png";
 import homepage4 from "../Shared/homepage/homepage4.png";
 import homepage5 from "../Shared/homepage/homepage5.png";
+import contactus from "../Shared/homepage/contactus.png";
 import book from "../Shared/book.png";
 import earth from "../Shared/earth.png";
 import heart from "../Shared/heart.png";
@@ -664,7 +665,7 @@ const Homepage = () => {
         <div>
           <div className={classes.contacttitle}>Contact Information</div>
 
-          <img src={avatar} alt="how1" className={classes.lastimg} />
+          <img src={contactus} alt="how1" className={classes.lastimg} />
         </div>
         <div className={classes.howFlex2}>
           <div className={classes.flexContainer2}>

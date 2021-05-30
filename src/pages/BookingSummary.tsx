@@ -5,6 +5,7 @@ import MailOutlineIcon from "@material-ui/icons/MailOutline";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import { Typography, Button } from "@material-ui/core";
 import image from "../Shared/tutor.jpeg";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   maincontainer: {
@@ -220,6 +221,8 @@ export default function BookingSummary() {
             color="primary"
             className={classes.paymentbutton}
             type="submit"
+            component={Link}
+            to={"/bookingconfirmation"}
           >
             Pay Now
           </Button>
