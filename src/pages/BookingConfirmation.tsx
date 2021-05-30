@@ -1,8 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import logo from "../Shared/BriidgeIconTransparent.png";
-import MailOutlineIcon from "@material-ui/icons/MailOutline";
-import AccountCircleIcon from "@material-ui/icons/AccountCircle";
+import TopBar from "../components/TopBar";
 import { Typography, Button } from "@material-ui/core";
 import image from "../Shared/tutor.jpeg";
 import tick from "../Shared/tick.png";
@@ -36,9 +34,6 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "Quicksand-Bold",
     color: "#0051ff",
     fontSize: 35,
-  },
-  icon: {
-    marginRight: "20px",
   },
   image: {
     borderRadius: "50%",
@@ -151,18 +146,7 @@ export default function BookingConfirmation() {
 
   return (
     <div className={classes.maincontainer}>
-      <div className={classes.topBar}>
-        <img
-          src={logo}
-          alt="Briidge Logo"
-          width="50"
-          height="35"
-          style={{ margin: 15 }}
-        />
-        <div style={{ margin: "0 auto" }}>Welcome, John Doe!</div>
-        <MailOutlineIcon className={classes.icon} fontSize="large" />
-        <AccountCircleIcon className={classes.icon} fontSize="large" />
-      </div>
+      <TopBar />
       <div className={classes.container}>
         <div>
           <h3 className={classes.headerx}>Booking Summary</h3>
