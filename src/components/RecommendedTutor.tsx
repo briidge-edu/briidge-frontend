@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function RecommenedTutor() {
+export default function RecommendedTutor() {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
 

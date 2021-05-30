@@ -1,8 +1,8 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import TopBar from "../components/TopBar";
-import RecommenedTutor from "../components/RecommendedTutor";
 import { Link } from "react-router-dom";
+import RecommendedTutor from "../components/RecommendedTutor";
 
 const useStyles = makeStyles((theme) => ({
   header: {
@@ -34,9 +34,9 @@ export default function Dashboard() {
       <TopBar />
       <div className={classes.header}>The Best Suited Tutors For You</div>
       <div className={classes.recommendations}>
-        <RecommenedTutor />
-        <RecommenedTutor />
-        <RecommenedTutor />
+        <RecommendedTutor />
+        <RecommendedTutor />
+        <RecommendedTutor />
       </div>
       <Link to="/" className={classes.link}>
         I'm unable to find the tutor of my choice.
