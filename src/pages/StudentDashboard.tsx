@@ -38,7 +38,7 @@ export default function Dashboard() {
         <RecommendedTutor />
         <RecommendedTutor />
       </div>
-      <Link to="/" className={classes.link}>
+      <Link to="/studentdashboard" className={classes.link}>
         I'm unable to find the tutor of my choice.
       </Link>
     </div>

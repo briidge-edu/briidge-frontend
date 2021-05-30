@@ -4,6 +4,7 @@ import TopBar from "../components/TopBar";
 import { Typography, Button } from "@material-ui/core";
 import image from "../Shared/tutor.jpeg";
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router";
 
 const useStyles = makeStyles((theme) => ({
   maincontainer: {
@@ -105,6 +106,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function BookingSummary() {
   const classes = useStyles();
+  const history = useHistory();
 
   return (
     <div className={classes.maincontainer}>
@@ -165,6 +167,7 @@ export default function BookingSummary() {
               variant="contained"
               className={classes.schedulebutton}
               type="reset"
+              onClick={() => history.goBack()}
             >
               Re-Schedule
             </Button>
