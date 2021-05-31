@@ -17,6 +17,7 @@ import BookingSummary from './pages/BookingSummary';
 import BookingConfirmation from './pages/BookingConfirmation';
 import LessonBooking from './pages/LessonBooking';
 import TutorDashboard from './pages/TutorDashboard';
+import StudentSessions from './pages/StudentSessions';
 
 function App() {
   return (
@@ -61,6 +62,9 @@ function App() {
         </Route>
         <Route path="/lessonbooking">
           <LessonBooking />
+        </Route>
+        <Route path="/sessions">
+          <StudentSessions />
         </Route>
         <Route path="/tutordashboard">
           <TutorDashboard />

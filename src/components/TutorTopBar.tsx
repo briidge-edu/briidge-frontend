@@ -7,8 +7,7 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 const useStyles = makeStyles((theme) => ({
     topBar: {
         height: "60px",
-        backgroundColor: "#0051FF",
-        color: "#ffdf00",
+        color: "#0051FF",
         fontFamily: "LeagueSpartan",
         display: "flex",
         justifyContent: "space-between",
@@ -20,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
       },
 }));
 
-export default function TopBar() {
+export default function TutorTopBar() {
     const classes = useStyles();
 
     return (
