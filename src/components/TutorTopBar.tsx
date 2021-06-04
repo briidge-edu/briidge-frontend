@@ -19,7 +19,11 @@ const useStyles = makeStyles((theme) => ({
       },
 }));
 
-export default function TutorTopBar() {
+type Props = {
+  name: string
+}
+
+export default function TutorTopBar(props: Props) {
     const classes = useStyles();
 
     return (
@@ -31,7 +35,7 @@ export default function TutorTopBar() {
           height="35"
           style={{ margin: 15 }}
         />
-        <div style={{ margin: "0 auto" }}>Welcome, John Doe!</div>
+        <div style={{ margin: "0 auto" }}>Welcome, {props.name}!</div>
         <MailOutlineIcon className={classes.icon} fontSize="large" />
         <AccountCircleIcon className={classes.icon} fontSize="large" />
       </div>

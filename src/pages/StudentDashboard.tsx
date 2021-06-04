@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import TopBar from "../components/TopBar";
 import { Link } from "react-router-dom";
 import RecommendedTutor from "../components/RecommendedTutor";
+import IStudentSignup from "../interfaces/IStudentSignup";
 
 const useStyles = makeStyles((theme) => ({
   header: {
@@ -26,12 +27,16 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Dashboard() {
+type Props = {
+  student: IStudentSignup
+}
+
+export default function Dashboard(props: Props) {
   const classes = useStyles();
 
   return (
     <div>
-      <TopBar />
+      <TopBar name={props.student.name}/>
       <div className={classes.header}>The Best Suited Tutors For You</div>
       <div className={classes.recommendations}>
         <RecommendedTutor />

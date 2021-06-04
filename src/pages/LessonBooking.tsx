@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { useHistory, useLocation } from "react-router";
+import { useHistory } from "react-router";
 import TopBar from "../components/TopBar";
 import Calendar from "react-calendar";
 import "../Calendar.css";
@@ -12,6 +12,7 @@ import {
   Radio,
   RadioGroup,
 } from "@material-ui/core";
+import IStudentSignup from "../interfaces/IStudentSignup";
 
 const useStyles = makeStyles((theme) => ({
   header: {
@@ -78,14 +79,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-type Location = {
-  state: any;
+type Props = {
+  student: IStudentSignup
 };
 
-export default function LessonBooking(props: any) {
+export default function LessonBooking(props: Props) {
   const classes = useStyles();
   const history = useHistory();
-  const location = useLocation() as Location;
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [selectedTime, setSelectedTime] = useState("");
 
@@ -130,7 +130,7 @@ export default function LessonBooking(props: any) {
 
   return (
     <div>
-      <TopBar />
+      <TopBar name={props.student.name}/>
       <div className={classes.header}>Choose Your Lesson Date & Time</div>
       <div className={classes.main}>
         <div className={classes.calendar}>

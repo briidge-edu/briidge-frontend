@@ -6,6 +6,7 @@ import { Button, Checkbox, FormControlLabel, Grid, Typography } from '@material-
 import { Link } from 'react-router-dom';
 import TutorTopBar from '../components/TutorTopBar';
 import image from "../Shared/tutor.jpeg";
+import ITutorSignup from '../interfaces/ITutorSignup';
 
 const useStyles = makeStyles((theme) => ({
   maincontainer: {
@@ -128,12 +129,16 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function TutorsDashboard() {
+type Props = {
+  tutor: ITutorSignup
+}
+
+export default function TutorsDashboard(props: Props) {
   const classes = useStyles();
 
   return (
   <div className={classes.maincontainer}>
-  <TutorTopBar />
+  <TutorTopBar name={props.tutor.name}/>
   <div className={classes.container}>
     <div className={classes.leftdiv}>
     <h3 className={classes.headerx}>Your Upcoming Lessons</h3>

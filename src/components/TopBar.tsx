@@ -21,7 +21,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function TopBar() {
+type Props = {
+  name: string
+};
+
+export default function TopBar(props: Props) {
   const classes = useStyles();
 
   return (
@@ -35,7 +39,7 @@ export default function TopBar() {
           style={{ margin: 15 }}
         />
       </Link>
-      <div style={{ margin: "0 auto" }}>Welcome, John Doe!</div>
+      <div style={{ margin: "0 auto" }}>Welcome, {props.name}!</div>
       <MailOutlineIcon className={classes.icon} fontSize="large" />
       <AccountCircleIcon className={classes.icon} fontSize="large" />
     </div>

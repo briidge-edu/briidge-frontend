@@ -9,6 +9,7 @@ import LocationForm from '../components/signup-forms/LocationForm';
 import TuitionPreferencesForm from '../components/signup-forms/TutorTuitionPreferences';
 import TutorConfirmation from '../components/signup-forms/TutorConfirmation';
 import update from 'immutability-helper';
+import { useHistory } from 'react-router';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -34,8 +35,13 @@ function getSteps() {
     return ['Login Details', 'Personal Details', 'Location Preferences', 'Tutoring Preferences', 'Confirmation'];
 }
 
-export default function TutorSignup() {
+type Props = {
+    setTutor: any
+}
+
+export default function TutorSignup(props: Props) {
     const classes = useStyles();
+    const history = useHistory();
 
     const [activeStep, setActiveStep] = useState(0);
 
@@ -134,7 +140,8 @@ export default function TutorSignup() {
 
     const handleSubmit = (event: SyntheticEvent) => {
         event.preventDefault();
-        console.log("Submitted")
+        props.setTutor(state);
+        history.push('/tutordashboard');
     }
 
     const getStepContent = (stepIndex: number) => {

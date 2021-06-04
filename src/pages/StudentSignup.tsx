@@ -9,6 +9,7 @@ import LocationForm from '../components/signup-forms/LocationForm';
 import TuitionPreferencesForm from '../components/signup-forms/StudentTuitionPreferences';
 import StudentConfirmation from '../components/signup-forms/StudentConfirmation';
 import update from 'immutability-helper';
+import { useHistory } from 'react-router';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -34,7 +35,12 @@ function getSteps() {
     return ['Login Details', 'Personal Details', 'Location Preferences', 'Tutoring Preferences', 'Confirmation'];
 }
 
-export default function StudentSignup() {
+type Props = {
+    setStudent: any
+}
+
+export default function StudentSignup(props: Props) {
+    const history = useHistory();
     const classes = useStyles();
 
     const [activeStep, setActiveStep] = useState(0);
@@ -133,7 +139,8 @@ export default function StudentSignup() {
 
     const handleSubmit = (event: SyntheticEvent) => {
         event.preventDefault();
-        console.log("Submitted")
+        props.setStudent(state)
+        history.push({ pathname: "/studentdashboard", state: { student: state } })
     }
 
     const getStepContent = (stepIndex: number) => {

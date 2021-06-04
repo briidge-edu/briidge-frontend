@@ -10,6 +10,7 @@ import ChatIcon from '@material-ui/icons/Chat';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import MailIcon from '@material-ui/icons/Mail';
+import ITutorSignup from "../interfaces/ITutorSignup";
 
 //TODO: Make this page nice for mobile
 
@@ -138,12 +139,16 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function StudentSessions() {
+type Props = {
+  tutor: ITutorSignup
+}
+
+export default function StudentSessions(props: Props) {
   const classes = useStyles();
 
   return (
     <div className={classes.maincontainer}>
-      <TutorTopBar />
+      <TutorTopBar name={props.tutor.name}/>
       <div className={classes.container}>
         <div className={classes.leftdiv}>
           <h3 className={classes.headerx}>Your upcoming sessions for the week</h3>

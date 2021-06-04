@@ -5,6 +5,7 @@ import { Typography, Button } from "@material-ui/core";
 import image from "../Shared/tutor.jpeg";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router";
+import IStudentSignup from "../interfaces/IStudentSignup";
 
 const useStyles = makeStyles((theme) => ({
   maincontainer: {
@@ -104,13 +105,17 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function BookingSummary() {
+type Props = {
+  student: IStudentSignup
+}
+
+export default function BookingSummary(props: Props) {
   const classes = useStyles();
   const history = useHistory();
 
   return (
     <div className={classes.maincontainer}>
-      <TopBar />
+      <TopBar name={props.student.name}/>
       <div className={classes.container}>
         <div>
           <h3 className={classes.headerx}>Booking Summary</h3>
