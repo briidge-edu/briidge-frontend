@@ -1,13 +1,14 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { DialogContent, Typography } from "@material-ui/core";
+import { BRIIDGE_BLUE, BRIIDGE_YELLOW } from '../themes';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    backgroundColor: "#ffdf00",
+    backgroundColor: BRIIDGE_YELLOW,
     padding: "20px",
     marginBottom: "30px",
     borderRadius: "30px",
@@ -20,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
   },
   rate: {
     fontFamily: "LeagueSpartan",
-    color: "#0051ff",
+    color: BRIIDGE_BLUE,
     fontSize: 24,
     marginBottom: "10px",
   },

@@ -1,21 +1,26 @@
 import { createMuiTheme } from '@material-ui/core/styles';
+
+export const BRIIDGE_BLUE = "#0051ff"
+export const BRIIDGE_YELLOW = "#ffdf00"
+
 // A custom theme for this app
 const theme = createMuiTheme({
   palette: {
     type: 'light',
     primary: {
-      main: '#0051ff',
-      light: '#0051ff',
-      dark: '#0051ff',
+      main: BRIIDGE_BLUE,
+      light: BRIIDGE_BLUE,
+      dark: BRIIDGE_BLUE,
     },
     secondary: {
-      main: '#ffdf00',
-      light: '#ffdf00',
-      dark: '#ffdf00',
+      main: BRIIDGE_YELLOW,
+      light: BRIIDGE_YELLOW,
+      dark: BRIIDGE_YELLOW,
     }
   },
   typography: {
     fontFamily: 'Montserrat-Regular'
   }
 });
+
 export default theme;

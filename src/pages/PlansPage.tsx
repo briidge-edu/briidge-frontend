@@ -4,10 +4,11 @@ import NaviBar from "../components/NaviBar";
 import "./AboutUs.css";
 import { Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
+import { BRIIDGE_BLUE, BRIIDGE_YELLOW } from '../themes';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    backgroundColor: "#ffdf00",
+    backgroundColor: BRIIDGE_YELLOW,
     minHeight: "100vh",
   },
 
@@ -38,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
   header: {
     fontFamily: "LeagueSpartan",
     fontSize: 30,
-    color: "#0051FF",
+    color: BRIIDGE_BLUE,
     paddingTop: 83,
     paddingLeft: "5%",
     paddingRight: "5%",
@@ -72,8 +73,8 @@ const useStyles = makeStyles((theme) => ({
   },
 
   btn: {
-    color: "#ffdf00",
-    backgroundColor: "#0051FF",
+    color: BRIIDGE_YELLOW,
+    backgroundColor: BRIIDGE_BLUE,
     fontSize: 18,
     borderRadius: "20px",
     fontFamily: "Quicksand-Bold",

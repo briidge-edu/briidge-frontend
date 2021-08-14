@@ -11,6 +11,7 @@ import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import MailIcon from '@material-ui/icons/Mail';
 import ITutorSignup from "../interfaces/ITutorSignup";
+import { BRIIDGE_BLUE, BRIIDGE_YELLOW } from '../themes';
 
 //TODO: Make this page nice for mobile
 
@@ -28,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "2%",
     textAlign: "center",
     fontFamily: "Quicksand-Bold",
-    color: "#0051ff",
+    color: BRIIDGE_BLUE,
     fontSize: 28,
   },
   link: {
@@ -38,21 +39,21 @@ const useStyles = makeStyles((theme) => ({
   },
   headerx: {
     fontFamily: "LeagueSpartan",
-    color: "#ffdf00",
+    color: BRIIDGE_YELLOW,
     fontSize: 23,
     margin: 15,
     marginBottom: 20,
   },
   channels: {
     fontFamily: "LeagueSpartan",
-    color: "#ffdf00",
+    color: BRIIDGE_YELLOW,
     margin: 10,
     fontSize: 19,
   },
   leftdiv: {
     display: "flex",
     flexDirection: "column",
-    backgroundColor: "#0051FF",
+    backgroundColor: BRIIDGE_BLUE,
     width: 900,
     height: 500,
     margin: 5,
@@ -63,7 +64,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "space-around",
   },
   rightdiv: {
-    backgroundColor: "#0051FF",
+    backgroundColor: BRIIDGE_BLUE,
     width: 500,
     margin: 5,
     padding: 20,
@@ -116,7 +117,7 @@ const useStyles = makeStyles((theme) => ({
   arrow: {
     width: 50,
     height: 50,
-    color: "#ffdf00",
+    color: BRIIDGE_YELLOW,
   },
   tutorSubjects: {
     fontSize: 15,
@@ -135,7 +136,7 @@ const useStyles = makeStyles((theme) => ({
   mailIcon: {
     marginLeft: 10,
     marginBottom: 10,
-    color: "#ffdf00"
+    color: BRIIDGE_YELLOW
   }
 }));
 

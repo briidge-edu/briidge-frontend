@@ -5,6 +5,7 @@ import { Typography, Button } from "@material-ui/core";
 import image from "../Shared/tutor.jpeg";
 import tick from "../Shared/tick.png";
 import IStudentSignup from "../interfaces/IStudentSignup";
+import { BRIIDGE_BLUE, BRIIDGE_YELLOW } from '../themes';
 
 const useStyles = makeStyles((theme) => ({
   maincontainer: {
@@ -21,8 +22,8 @@ const useStyles = makeStyles((theme) => ({
   },
   topBar: {
     height: "60px",
-    backgroundColor: "#0051FF",
-    color: "#ffdf00",
+    backgroundColor: BRIIDGE_BLUE,
+    color: BRIIDGE_YELLOW,
     fontFamily: "LeagueSpartan",
     display: "flex",
     justifyContent: "space-between",
@@ -33,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "2%",
     textAlign: "center",
     fontFamily: "Quicksand-Bold",
-    color: "#0051ff",
+    color: BRIIDGE_BLUE,
     fontSize: 35,
   },
   image: {
@@ -54,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
   schedulebutton: {
     margin: "10px",
     fontFamily: "LeagueSpartan",
-    color: "#0051FF",
+    color: BRIIDGE_BLUE,
     height: 40,
     width: 160,
     position: "absolute",
@@ -65,7 +66,7 @@ const useStyles = makeStyles((theme) => ({
     margin: 5,
     fontFamily: "Quicksand-Bold",
     fontSize: 25,
-    color: "#ffdf00",
+    color: BRIIDGE_YELLOW,
     height: 60,
     width: 300,
   },
@@ -88,7 +89,7 @@ const useStyles = makeStyles((theme) => ({
   },
   headerx: {
     fontFamily: "LeagueSpartan",
-    color: "#0051FF",
+    color: BRIIDGE_BLUE,
     fontSize: 23,
     margin: 10,
   },
@@ -104,7 +105,7 @@ const useStyles = makeStyles((theme) => ({
     padding: 20,
   },
   headers: {
-    color: "#0051ff",
+    color: BRIIDGE_BLUE,
     fontWeight: "bold",
     fontSize: 20,
   },

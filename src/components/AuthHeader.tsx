@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Typography } from '@material-ui/core';
+import { BRIIDGE_BLUE, BRIIDGE_YELLOW } from '../themes';
 
 const useStyles = makeStyles((theme) => ({
     container: {
@@ -15,10 +16,10 @@ const useStyles = makeStyles((theme) => ({
 
     h3: {
         fontFamily: 'LeagueSpartan',
-        color: '#0051FF',
+        color: BRIIDGE_BLUE,
         textDecoration: 'underline',
         textUnderlinePosition: 'under',
-        textDecorationColor: '#FFDF00',
+        textDecorationColor: BRIIDGE_YELLOW,
     }
 }));
 

@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Button, Grid, Typography } from "@material-ui/core";
 import image from "../Shared/tutor.jpeg";
 import TutorDialog from "./TutorDialog";
+import { BRIIDGE_BLUE, BRIIDGE_YELLOW } from '../themes';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -23,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
   viewButtonLabel: {
     textTransform: "none",
     fontFamily: "Montserrat-Light",
-    color: "#ffdf00",
+    color: BRIIDGE_YELLOW,
   },
   button: {
     marginTop: "20px",

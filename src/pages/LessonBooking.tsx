@@ -13,6 +13,7 @@ import {
   RadioGroup,
 } from "@material-ui/core";
 import IStudentSignup from "../interfaces/IStudentSignup";
+import { BRIIDGE_BLUE, BRIIDGE_YELLOW } from '../themes';
 
 const useStyles = makeStyles((theme) => ({
   header: {
@@ -20,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "1%",
     fontFamily: "LeagueSpartan",
     fontSize: 24,
-    color: "#0051ff",
+    color: BRIIDGE_BLUE,
   },
 
   calendar: {
@@ -41,8 +42,8 @@ const useStyles = makeStyles((theme) => ({
 
   paperHeader: {
     lineHeight: "46px",
-    backgroundColor: "#0051ff",
-    color: "#ffdf00",
+    backgroundColor: BRIIDGE_BLUE,
+    color: BRIIDGE_YELLOW,
     fontFamily: "Quicksand-Bold",
     textAlign: "center",
   },
@@ -60,7 +61,7 @@ const useStyles = makeStyles((theme) => ({
 
   radio: {
     margin: "5px 10px",
-    color: "#0051ff",
+    color: BRIIDGE_BLUE,
   },
 
   actions: {

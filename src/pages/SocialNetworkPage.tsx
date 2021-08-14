@@ -5,6 +5,7 @@ import './AboutUs.css';
 // import { Button, ButtonBase } from "@material-ui/core";
 // import { Link } from 'react-router-dom';
 // import { FullscreenExitTwoTone } from "@material-ui/icons";
+import { BRIIDGE_BLUE, BRIIDGE_YELLOW } from '../themes';
 
 const useStyles = makeStyles((theme) => ({
     row: {
@@ -32,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
     h4: {
         fontFamily:"LeagueSpartan",
         fontSize: 40,
-        color: "#0051FF",
+        color: BRIIDGE_BLUE,
         paddingTop: 60
     },
 
@@ -41,8 +42,8 @@ const useStyles = makeStyles((theme) => ({
         width: '300px',
         height: '450px',
         flexDirection: "column",
-        backgroundColor: "#0051FF",
-        color: "#ffdf00",
+        backgroundColor: BRIIDGE_BLUE,
+        color: BRIIDGE_YELLOW,
         fontFamily:"LeagueSpartan",
         fontSize: 20,
         paddingTop: 15,
@@ -71,8 +72,8 @@ const useStyles = makeStyles((theme) => ({
     },
 
     btn: {
-        color: "#ffdf00",
-        backgroundColor: "#0051FF",
+        color: BRIIDGE_YELLOW,
+        backgroundColor: BRIIDGE_BLUE,
         fontSize: 18,
         borderRadius: "20px",
         fontFamily: "Quicksand-Bold",
@@ -85,7 +86,7 @@ const useStyles = makeStyles((theme) => ({
         width: '800px',
         flexDirection: "column",
         fontFamily:"QuickSand-Bold",
-        color: "#0051FF",
+        color: BRIIDGE_BLUE,
         marginLeft: 100,
         marginTop: 35
     },

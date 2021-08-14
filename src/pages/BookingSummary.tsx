@@ -6,6 +6,7 @@ import image from "../Shared/tutor.jpeg";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router";
 import IStudentSignup from "../interfaces/IStudentSignup";
+import { BRIIDGE_BLUE, BRIIDGE_YELLOW } from '../themes';
 
 const useStyles = makeStyles((theme) => ({
   maincontainer: {
@@ -21,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "2%",
     textAlign: "center",
     fontFamily: "Quicksand-Bold",
-    color: "#0051ff",
+    color: BRIIDGE_BLUE,
     fontSize: 35,
   },
   image: {
@@ -34,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
   schedulebutton: {
     margin: "10px",
     fontFamily: "LeagueSpartan",
-    color: "#0051FF",
+    color: BRIIDGE_BLUE,
     height: 40,
     width: 160,
     position: "absolute",
@@ -45,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
     margin: 5,
     fontFamily: "Quicksand-Bold",
     fontSize: 25,
-    color: "#ffdf00",
+    color: BRIIDGE_YELLOW,
     height: 60,
     width: 300,
   },
@@ -67,7 +68,7 @@ const useStyles = makeStyles((theme) => ({
   },
   headerx: {
     fontFamily: "LeagueSpartan",
-    color: "#0051FF",
+    color: BRIIDGE_BLUE,
     fontSize: 23,
     margin: 10,
   },
@@ -83,7 +84,7 @@ const useStyles = makeStyles((theme) => ({
     padding: 20,
   },
   headers: {
-    color: "#0051ff",
+    color: BRIIDGE_BLUE,
     fontWeight: "bold",
     fontSize: 20,
   },
@@ -198,7 +199,7 @@ export default function BookingSummary(props: Props) {
                 <div style={{ fontSize: 18 }}>Total Amount</div>
                 <div
                   className={classes.rightmoney}
-                  style={{ color: "#0051FF", fontSize: 20, marginTop: -30 }}
+                  style={{ color: BRIIDGE_BLUE, fontSize: 20, marginTop: -30 }}
                 >
                   SGD 37.45
                 </div>

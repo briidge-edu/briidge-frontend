@@ -5,6 +5,7 @@ import AuthHeader from '../components/AuthHeader';
 import { Button, Grid } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import TutorCard from '../components/TutorCard'
+import { BRIIDGE_BLUE } from '../themes';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -19,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     },
 
     container: {
-        backgroundColor: '#0051ff',
+        backgroundColor: BRIIDGE_BLUE,
         height: '150px',
         display: 'flex',
         flexDirection: 'column',
@@ -29,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
     },
 
     cta: {
-        color: '#0051ff',
+        color: BRIIDGE_BLUE,
         fontSize: '125%',
         textTransform: 'none',
         borderRadius: '25px/75px',

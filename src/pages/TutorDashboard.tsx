@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import TutorTopBar from '../components/TutorTopBar';
 import image from "../Shared/tutor.jpeg";
 import ITutorSignup from '../interfaces/ITutorSignup';
+import { BRIIDGE_BLUE, BRIIDGE_YELLOW } from '../themes';
 
 const useStyles = makeStyles((theme) => ({
   maincontainer: {
@@ -22,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
   marginTop: "2%",
   textAlign: "center",
   fontFamily: "Quicksand-Bold",
-  color: "#0051ff",
+  color: BRIIDGE_BLUE,
   fontSize: 28,
   },
   link: {
@@ -32,21 +33,21 @@ const useStyles = makeStyles((theme) => ({
   },
   headerx: {
   fontFamily: "LeagueSpartan",
-  color: "#ffdf00",
+  color: BRIIDGE_YELLOW,
   fontSize: 23,
   margin: 15,
   marginBottom: 20,
   },
   payment: {
   fontFamily: "LeagueSpartan",
-  color: "#ffdf00",
+  color: BRIIDGE_YELLOW,
   margin: 10,
   fontSize: 19,
   },
   leftdiv: {
   display: "flex",
   flexDirection: "column",
-  backgroundColor: "#0051FF",
+  backgroundColor: BRIIDGE_BLUE,
   width: 750,
   height: 500,
   margin: 5,
@@ -58,7 +59,7 @@ const useStyles = makeStyles((theme) => ({
   margin: 30,
   },
   rightdiv: {
-  backgroundColor: "#0051FF",
+  backgroundColor: BRIIDGE_BLUE,
   width: 500,
   margin: 5,
   padding: 20,
@@ -108,7 +109,7 @@ const useStyles = makeStyles((theme) => ({
   arrow: {
   width: 50,
   height: 50,
-  color: "#ffdf00",
+  color: BRIIDGE_YELLOW,
   },
   tutorName: {
     fontSize: 13,
@@ -125,7 +126,7 @@ const useStyles = makeStyles((theme) => ({
   mailIcon: {
   marginLeft: 10,
   marginBottom: 10,
-  color: "#ffdf00"
+  color: BRIIDGE_YELLOW
   }
 }));
 

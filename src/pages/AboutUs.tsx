@@ -13,6 +13,7 @@ import read from "../Shared/read.png";
 
 import "./AboutUs.css";
 import { findByLabelText } from "@testing-library/dom";
+import { BRIIDGE_BLUE } from "../themes";
 
 const useStyles = makeStyles((theme) => ({
   firstRow: {
@@ -124,7 +125,7 @@ const useStyles = makeStyles((theme) => ({
 
   h2: {
     fontFamily: "LeagueSpartan",
-    color: "#0051FF",
+    color: BRIIDGE_BLUE,
   },
 
   p: {
@@ -153,7 +154,7 @@ const AboutUs = () => {
     <div>
       <NaviBar />
       <div className={`${classes.row} ${classes.firstRow}`}>
-        <div className={classes.column} style={{ backgroundColor: "#0051FF" }}>
+        <div className={classes.column} style={{ backgroundColor: BRIIDGE_BLUE }}>
           <img src={wordLogo} alt="Briidge Word Logo" className={classes.img} />
         </div>
         <div className={classes.column}>

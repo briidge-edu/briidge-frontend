@@ -4,13 +4,14 @@ import TopBar from "../components/TopBar";
 import { Link } from "react-router-dom";
 import RecommendedTutor from "../components/RecommendedTutor";
 import IStudentSignup from "../interfaces/IStudentSignup";
+import { BRIIDGE_BLUE } from "../themes";
 
 const useStyles = makeStyles((theme) => ({
   header: {
     marginTop: "2%",
     textAlign: "center",
     fontFamily: "Quicksand-Bold",
-    color: "#0051ff",
+    color: BRIIDGE_BLUE,
     fontSize: 28,
   },
 
