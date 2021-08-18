@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   header: {
-    margin: theme.spacing(3, 0),
+    margin: theme.spacing(3, 1),
   },
 
   finalheader: {
@@ -252,7 +252,7 @@ const HowWeCanHelp: React.FC<HowWeCanHelpProps> = ({
 }: HowWeCanHelpProps) => {
   const classes = useStyles();
   return (
-    <Grid container>
+    <Grid container xs={12} spacing={3}>
       {items.map((item, idx) => (
         <Grid item container xs={12} md={6} direction="column">
           <Grid item>
@@ -357,7 +357,7 @@ const Homepage = () => {
         </div>
 
         <Grid container direction="column" xs={12} spacing={3}>
-          <Grid item container>
+          <Grid item container xs={12}>
             {HOW_OUR_PLATFORM_WORKS.map((item) => (
               <Grid item container xs={12} md={4} direction="column">
                 <Grid item>
@@ -372,7 +372,7 @@ const Homepage = () => {
               </Grid>
             ))}
           </Grid>
-          <Grid item xs={12}>
+          <Grid item>
             <Button
               component={Link}
               to={"/signup"}
@@ -397,7 +397,7 @@ const Homepage = () => {
       {/* Our Features */}
       <HomepageRow rowColor={BRIIDGE_BLUE}>
         <h2 className={classes.featureHeader}>{"Our Features"}</h2>
-        <Grid container xs={12} spacing={2} direction="column">
+        <Grid container xs={12} spacing={3}>
           <Grid item container justifyContent="space-between" xs={12}>
             {FEATURES.map((item) => (
               <Grid item xs={12} md={4} container direction="column">
