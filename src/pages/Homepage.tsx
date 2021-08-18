@@ -112,15 +112,13 @@ const useStyles = makeStyles((theme) => ({
 
   whiteTitle: {
     fontFamily: "Montserrat-Regular",
-    margin: "10px 0 10px 0",
-    color: "#FFF",
+    margin: theme.spacing(2, 0),
+    color: "white",
   },
 
   belowBlueTitle: {
     fontFamily: "Montserrat-Light",
-    paddingLeft: "12%",
-    paddingRight: "12%",
-    paddingBottom: "3%",
+    padding: theme.spacing(0, 8),
   },
 
   // For page 3 & 4
@@ -472,80 +470,80 @@ const Homepage = () => {
       <div className={classes.row} style={{ backgroundColor: BRIIDGE_BLUE }}>
         <h2 className={classes.featuretitle}>{"Our Features"}</h2>
 
-        <Grid container justifyContent="space-between">
-          <Grid item xs={12} md={4} container direction="column">
-            <Grid item>
-              <img src={Tutor2} alt="how1" className={classes.img} />
+        <Grid container spacing={2} direction="column">
+          <Grid item container justifyContent="space-between" xs={12}>
+            <Grid item xs={12} md={4} container direction="column">
+              <Grid item>
+                <img src={Tutor2} alt="how1" className={classes.img} />
+              </Grid>
+              <Grid item>
+                <div className={classes.whiteTitle}>
+                  {"Personalised Tutor Matchmaking"}
+                </div>
+              </Grid>
+              <Grid item>
+                <div
+                  className={classes.belowBlueTitle}
+                  style={{ color: "#FFF" }}
+                >
+                  {
+                    "Our platform connects you with the tutor of your choice based on your personal academic goals or needs."
+                  }
+                </div>
+              </Grid>
             </Grid>
-            <Grid item>
-              <div className={classes.whiteTitle}>
-                {"Personalised Tutor Matchmaking"}
-              </div>
+            <Grid item xs={12} md={4} container direction="column">
+              <Grid item>
+                <img src={Schedule} alt="how2" className={classes.img} />
+              </Grid>
+              <Grid item>
+                <div className={classes.whiteTitle}>
+                  {"Convenient Scheduling"}
+                </div>
+              </Grid>
+              <Grid item>
+                <div
+                  className={classes.belowBlueTitle}
+                  style={{ color: "#FFF" }}
+                >
+                  {"Our platform eases lesson booking and scheduling with your tutor. " +
+                    "Constant reminders of upcoming lessons and payment deadlines provides you with a seamless tuition experience."}
+                </div>
+              </Grid>
             </Grid>
-            <Grid item>
-              <div className={classes.belowBlueTitle} style={{ color: "#FFF" }}>
-                {
-                  "Our platform connects you with the tutor of your choice based on your personal academic goals or needs."
-                }
-              </div>
+            <Grid item xs={12} md={4} container direction="column">
+              <Grid item>
+                <img src={StuNet} alt="how3" className={classes.img} />
+              </Grid>
+              <Grid item>
+                <div className={classes.whiteTitle}>{"Student Network"}</div>
+              </Grid>
+              <Grid item>
+                <div
+                  className={classes.belowBlueTitle}
+                  style={{ color: "#FFF" }}
+                >
+                  {"Our student social networking feature connects you with a large group of students from various education levels. " +
+                    "We provide the opportunity for you to exchange academic resources with anyone from any education level."}
+                </div>
+              </Grid>
             </Grid>
           </Grid>
-          <Grid item xs={12} md={4} container direction="column">
-            <Grid item>
-              <img src={Schedule} alt="how2" className={classes.img} />
-            </Grid>
-            <Grid item>
-              <div className={classes.whiteTitle}>
-                {"Convenient Scheduling"}
-              </div>
-            </Grid>
-            <Grid item>
-              <div className={classes.belowBlueTitle} style={{ color: "#FFF" }}>
-                {"Our platform eases lesson booking and scheduling with your tutor. " +
-                  "Constant reminders of upcoming lessons and payment deadlines provides you with a seamless tuition experience."}
-              </div>
-            </Grid>
+          <Grid item xs={12}>
+            <Link to="/" style={{ color: "white", fontWeight: "bold" }}>
+              {"Learn more >>"}
+            </Link>
           </Grid>
-
-          <Grid item xs={12} md={4} container direction="column">
-            <Grid item>
-              <img src={StuNet} alt="how3" className={classes.img} />
-            </Grid>
-            <Grid item>
-              <div className={classes.whiteTitle}>{"Student Network"}</div>
-            </Grid>
-            <Grid item>
-              <div className={classes.belowBlueTitle} style={{ color: "#FFF" }}>
-                {"Our student social networking feature connects you with a large group of students from various education levels. " +
-                  "We provide the opportunity for you to exchange academic resources with anyone from any education level."}
-              </div>
-            </Grid>
+          <Grid item xs={12}>
+            <Button
+              className={`${classes.btn2} ${"btn-primary"}`}
+              component={Link}
+              to={"/signup"}
+            >
+              {"Start your free trial now!"}
+            </Button>
           </Grid>
         </Grid>
-
-        <div style={{ flex: 1 }}>
-          <div style={{ marginBottom: 30 }}>
-            <a
-              href=""
-              style={{
-                color: "#FFF",
-                fontWeight: "bold",
-                textDecorationLine: "underline",
-              }}
-            >
-              {"Learn more >>"}
-            </a>
-          </div>
-
-          <Button
-            type="button"
-            className={`${classes.btn2} ${"btn-primary"}`}
-            component={Link}
-            to={"/signup"}
-          >
-            {"Start your free trial now!"}
-          </Button>
-        </div>
       </div>
 
       <div className={classes.row}>
@@ -554,63 +552,61 @@ const Homepage = () => {
             "Briidge strives for a world where everyone has equal rights and access to quality education regardless of their background."
           }
         </h5>
-        <Grid container>
-          <Grid item container xs={12} md={4} direction="column">
-            <Grid item>
-              <div className={classes.bigblueTitle}>{"Our Mission"}</div>
+        <Grid container direction="column" spacing={3}>
+          <Grid item container>
+            <Grid item container xs={12} md={4} direction="column">
+              <Grid item>
+                <div className={classes.bigblueTitle}>{"Our Mission"}</div>
+              </Grid>
+              <Grid item>
+                <img src={book} alt="how1" className={classes.img} />
+              </Grid>
+              <Grid item>
+                <div className={classes.belowBlueTitle}>
+                  {"Our platform connects students to their preferred tutors based on their personal academic needs " +
+                    "supporting them towards reaching their educational goals."}
+                </div>
+              </Grid>
             </Grid>
-            <Grid item>
-              <img src={book} alt="how1" className={classes.img} />
+            <Grid item container xs={12} md={4} direction="column">
+              <Grid item>
+                <div className={classes.bigblueTitle}>{"Our Vision"}</div>
+              </Grid>
+              <Grid item>
+                <img src={earth} alt="how2" className={classes.img} />
+              </Grid>
+              <Grid item>
+                <div className={classes.belowBlueTitle}>
+                  {"We aim to be the catalyst of change in the tuition industry worldwide through our convenient and " +
+                    "affordable online tutor matchmaking service. We strive to provide access to quality " +
+                    "education to students worldwide, especially the underprivileged."}
+                </div>
+              </Grid>
             </Grid>
-            <Grid item>
-              <div className={classes.belowBlueTitle}>
-                {"Our platform connects students to their preferred tutors based on their personal academic needs " +
-                  "supporting them towards reaching their educational goals."}
-              </div>
+            <Grid item container xs={12} md={4} direction="column">
+              <Grid item>
+                <div className={classes.bigblueTitle}>
+                  {"Our Social Impact"}
+                </div>
+              </Grid>
+              <Grid item>
+                <img src={heart} alt="how3" className={classes.img} />
+              </Grid>
+              <Grid item>
+                <div className={classes.belowBlueTitle}>
+                  {"We strive to support the underprivileged student community through our platform. " +
+                    "Every student using our services will help provide better access to quality education for those students " +
+                    "in need, starting from Singapore."}
+                </div>
+              </Grid>
             </Grid>
           </Grid>
-          <Grid item container xs={12} md={4} direction="column">
-            <Grid item>
-              <div className={classes.bigblueTitle}>{"Our Vision"}</div>
-            </Grid>
-            <Grid item>
-              <img src={earth} alt="how2" className={classes.img} />
-            </Grid>
-            <Grid item>
-              <div className={classes.belowBlueTitle}>
-                {"We aim to be the catalyst of change in the tuition industry worldwide through our convenient and " +
-                  "affordable online tutor matchmaking service. We strive to provide access to quality " +
-                  "education to students worldwide, especially the underprivileged."}
-              </div>
-            </Grid>
-          </Grid>
-          <Grid item container xs={12} md={4} direction="column">
-            <Grid item>
-              <div className={classes.bigblueTitle}>{"Our Social Impact"}</div>
-            </Grid>
-            <Grid item>
-              <img src={heart} alt="how3" className={classes.img} />
-            </Grid>
-            <Grid item>
-              <div className={classes.belowBlueTitle}>
-                {"We strive to support the underprivileged student community through our platform. " +
-                  "Every student using our services will help provide better access to quality education for those students " +
-                  "in need, starting from Singapore."}
-              </div>
-            </Grid>
+          <Grid item>
+            <Link to="/" style={{ color: "black", fontWeight: "bold" }}>
+              {"Learn more >>"}
+            </Link>
           </Grid>
         </Grid>
-
-        <a
-          href=""
-          style={{
-            color: "#000",
-            fontWeight: "bold",
-            textDecorationLine: "underline",
-          }}
-        >
-          {"Learn more >>"}
-        </a>
       </div>
 
       <div className={classes.row}>
