@@ -23,6 +23,11 @@ import { Link } from "react-router-dom";
 import { Carousel } from "3d-react-carousal";
 import { BRIIDGE_BLUE, BRIIDGE_YELLOW } from "../themes";
 import TestimonialSlide from "../components/TestimonialSlide";
+import {
+  EMAIL_ADDRESS,
+  INSTAGRAM_USERNAME,
+  LINKEDIN_PROFILE,
+} from "../util/constants";
 
 const useStyles = makeStyles((theme) => ({
   landing: {
@@ -645,7 +650,7 @@ const Homepage = () => {
           alignItems="center"
         >
           <Grid item>{"EMAIL ADDRESS"}</Grid>
-          <Grid item>{"briidge.edu@gmail.com"}</Grid>
+          <Grid item>{EMAIL_ADDRESS}</Grid>
         </Grid>
         <Grid
           item
@@ -656,7 +661,7 @@ const Homepage = () => {
           alignItems="center"
         >
           <Grid item>{"LINKEDIN"}</Grid>
-          <Grid item>{"www.linkedin.com/company/briidge-edu"}</Grid>
+          <Grid item>{LINKEDIN_PROFILE}</Grid>
         </Grid>
         <Grid
           item
@@ -667,7 +672,7 @@ const Homepage = () => {
           alignItems="center"
         >
           <Grid item>{"INSTAGRAM"}</Grid>
-          <Grid item>{"@briidge.ed"}</Grid>
+          <Grid item>{INSTAGRAM_USERNAME}</Grid>
         </Grid>
         <Grid
           item
