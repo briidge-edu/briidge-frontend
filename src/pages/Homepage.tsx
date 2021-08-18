@@ -35,11 +35,8 @@ const useStyles = makeStyles((theme) => ({
   },
 
   row: {
-    justifyContent: "space-between",
     textAlign: "center",
-    alignItems: "center",
-    padding: 20,
-    paddingBottom: 70,
+    padding: theme.spacing(5, 0),
   },
 
   img: {
@@ -55,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
 
   header: {
     textAlign: "center",
-    margin: "20px 0 20px 0",
+    margin: theme.spacing(1, 0),
   },
 
   finalheader: {
@@ -82,7 +79,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   featuretitle: {
-    margin: theme.spacing(2),
+    margin: theme.spacing(2, 0),
     color: BRIIDGE_YELLOW,
   },
 
@@ -227,11 +224,33 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+type HomepageRowProps = {
+  rowColor?: string;
+  header?: string;
+  children: React.ReactNode;
+};
+
+const HomepageRow: React.FC<HomepageRowProps> = ({
+  rowColor = undefined,
+  header,
+  children,
+}: HomepageRowProps) => {
+  const classes = useStyles();
+  return (
+    <div className={classes.row} style={rowColor ? {backgroundColor: rowColor} : {}}>
+      {header && <h2 className={classes.header}>{header}</h2>}
+      {children}
+    </div>
+  );
+};
+
 type HowWeCanHelpProps = {
   items: { title: string; description: string }[];
 };
 
-const HowWeCanHelp = ({ items }: HowWeCanHelpProps) => {
+const HowWeCanHelp: React.FC<HowWeCanHelpProps> = ({
+  items,
+}: HowWeCanHelpProps) => {
   const classes = useStyles();
   return (
     <Grid container>
@@ -298,6 +317,13 @@ const Homepage = () => {
           {"Learn from the tutor of your choice today!"}
         </div>
 
+        <img
+          src={wordLogo}
+          alt="Briidge Word Logo"
+          className={classes.bridgeMainImg}
+        />
+
+        {/* Only render extra shapes on large screen sizes */}
         {isDesktopView && (
           <div>
             <img
@@ -310,17 +336,6 @@ const Homepage = () => {
               alt="design5"
               className={classes.homepageimgrightcurly}
             />
-          </div>
-        )}
-
-        <img
-          src={wordLogo}
-          alt="Briidge Word Logo"
-          className={classes.bridgeMainImg}
-        />
-
-        {isDesktopView && (
-          <div>
             <img
               src={homepage4}
               alt="design4"
@@ -409,8 +424,7 @@ const Homepage = () => {
         </Button>
       </div>
 
-      <div className={classes.row}>
-        <h2 className={classes.header}>{"How We Can Help You As A Student"}</h2>
+      <HomepageRow header="How We Can Help You As A Student">
         <HowWeCanHelp
           items={[
             {
@@ -435,10 +449,9 @@ const Homepage = () => {
             },
           ]}
         />
-      </div>
+      </HomepageRow>
 
-      <div className={classes.row}>
-        <h2 className={classes.header}>{"How We Can Help You As A Tutor"}</h2>
+      <HomepageRow header="How We Can Help You As A Tutor">
         <HowWeCanHelp
           items={[
             {
@@ -465,12 +478,11 @@ const Homepage = () => {
             },
           ]}
         />
-      </div>
+      </HomepageRow>
 
-      <div className={classes.row} style={{ backgroundColor: BRIIDGE_BLUE }}>
+      <HomepageRow rowColor={BRIIDGE_BLUE}>
         <h2 className={classes.featuretitle}>{"Our Features"}</h2>
-
-        <Grid container spacing={2} direction="column">
+        <Grid container xs={12} spacing={2} direction="column">
           <Grid item container justifyContent="space-between" xs={12}>
             <Grid item xs={12} md={4} container direction="column">
               <Grid item>
@@ -544,15 +556,15 @@ const Homepage = () => {
             </Button>
           </Grid>
         </Grid>
-      </div>
+      </HomepageRow>
 
-      <div className={classes.row}>
+      <HomepageRow>
         <h5 className={classes.finalheader}>
           {
             "Briidge strives for a world where everyone has equal rights and access to quality education regardless of their background."
           }
         </h5>
-        <Grid container direction="column" spacing={3}>
+        <Grid container direction="column" xs={12} spacing={3}>
           <Grid item container>
             <Grid item container xs={12} md={4} direction="column">
               <Grid item>
@@ -607,12 +619,9 @@ const Homepage = () => {
             </Link>
           </Grid>
         </Grid>
-      </div>
+      </HomepageRow>
 
-      <div className={classes.row}>
-        <h2 className={classes.header}>
-          {"What Our Briidge Community Says..."}
-        </h2>
+      <HomepageRow header="What Our Briidge Community Says...">
         <Carousel
           slides={slides}
           autoplay={true}
@@ -620,14 +629,10 @@ const Homepage = () => {
           arrows={false}
           arrowBorders={false}
         />
-      </div>
+      </HomepageRow>
 
-      <div className={classes.row} style={{ padding: 0 }}>
-        <div>
-          <div className={classes.contacttitle}>{"Contact Information"}</div>
-          <img src={contactus} alt="how1" className={classes.lastimg} />
-        </div>
-      </div>
+      <div className={classes.contacttitle}>{"Contact Information"}</div>
+      <img src={contactus} alt="how1" className={classes.lastimg} />
 
       <Grid
         container
