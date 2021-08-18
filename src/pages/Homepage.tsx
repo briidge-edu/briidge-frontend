@@ -2,29 +2,27 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import NaviBar from "../components/NaviBar";
 import wordLogo from "../Shared/BriidgeWordLogo2.png";
-import how1 from "../Shared/Tutor.png";
-import how2 from "../Shared/Match.png";
-import how3 from "../Shared/Date.png";
+
 import homepage1 from "../Shared/homepage/homepage1.png";
 import homepage2 from "../Shared/homepage/homepage2.png";
 import homepage3 from "../Shared/homepage/homepage3.png";
 import homepage4 from "../Shared/homepage/homepage4.png";
 import homepage5 from "../Shared/homepage/homepage5.png";
 import contactus from "../Shared/homepage/contactus.png";
-import book from "../Shared/book.png";
-import earth from "../Shared/earth.png";
-import heart from "../Shared/heart.png";
-import StuNet from "../Shared/StuNet.png";
+
 import avatar from "../Shared/avatar.png";
-import Schedule from "../Shared/Schedule.png";
-import Tutor2 from "../Shared/Tutor2.png";
 import { Button, Grid, Theme, useMediaQuery } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import { Carousel } from "3d-react-carousal";
 import { BRIIDGE_BLUE, BRIIDGE_YELLOW } from "../themes";
 import TestimonialSlide from "../components/TestimonialSlide";
 import {
+  AIMS_AND_OBJECTIVES,
   EMAIL_ADDRESS,
+  FEATURES,
+  HOW_OUR_PLATFORM_WORKS,
+  HOW_WE_CAN_HELP_STUDENTS,
+  HOW_WE_CAN_HELP_TUTORS,
   INSTAGRAM_USERNAME,
   LINKEDIN_PROFILE,
 } from "../util/constants";
@@ -51,22 +49,18 @@ const useStyles = makeStyles((theme) => ({
   },
 
   header: {
-    textAlign: "center",
-    margin: theme.spacing(1, 0),
+    margin: theme.spacing(3, 0),
   },
 
   finalheader: {
     fontFamily: "Quicksand-Bold",
     color: BRIIDGE_BLUE,
-    textAlign: "center",
-    margin: "40px 15% 30px 15%",
+    margin: "30px 15%",
     fontSize: 25,
   },
 
   smallText: {
     fontFamily: "Montserrat-Regular",
-    textAlign: "center",
-    margin: "0 0 20px 0",
   },
 
   supertitle: {
@@ -78,7 +72,7 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "Quicksand-Bold",
   },
 
-  featuretitle: {
+  featureHeader: {
     margin: theme.spacing(2, 0),
     color: BRIIDGE_YELLOW,
   },
@@ -237,15 +231,20 @@ const HomepageRow: React.FC<HomepageRowProps> = ({
 }: HomepageRowProps) => {
   const classes = useStyles();
   return (
-    <div className={classes.row} style={rowColor ? {backgroundColor: rowColor} : {}}>
+    <div
+      className={classes.row}
+      style={rowColor ? { backgroundColor: rowColor } : {}}
+    >
       {header && <h2 className={classes.header}>{header}</h2>}
       {children}
     </div>
   );
 };
 
+export type HowWeCanHelp = { title: string; description: string };
+
 type HowWeCanHelpProps = {
-  items: { title: string; description: string }[];
+  items: HowWeCanHelp[];
 };
 
 const HowWeCanHelp: React.FC<HowWeCanHelpProps> = ({
@@ -274,41 +273,50 @@ const HowWeCanHelp: React.FC<HowWeCanHelpProps> = ({
   );
 };
 
+export type HomepageCard = {
+  image: string;
+  title: string;
+  description: string;
+};
+
+const slides = [
+  <TestimonialSlide
+    avatar={avatar}
+    name={"Mariah Turner"}
+    identity={"Student"}
+    text={
+      "Testimonials are short quotes from people who love your brand. It's a great way to convince customers to try your services."
+    }
+  />,
+  <TestimonialSlide
+    avatar={avatar}
+    name={"Mariah Turner"}
+    identity={"Student"}
+    text={
+      "Testimonials are short quotes from people who love your brand. It's a great way to convince customers to try your services."
+    }
+  />,
+  <TestimonialSlide
+    avatar={avatar}
+    name={"Mariah Turner"}
+    identity={"Student"}
+    text={
+      "Testimonials are short quotes from people who love your brand. It's a great way to convince customers to try your services."
+    }
+  />,
+];
+
 const Homepage = () => {
   const classes = useStyles();
   const isDesktopView = useMediaQuery((theme: Theme) =>
     theme.breakpoints.up("lg")
   );
-  let slides = [
-    <TestimonialSlide
-      avatar={avatar}
-      name={"Mariah Turner"}
-      identity={"Student"}
-      text={
-        "Testimonials are short quotes from people who love your brand. It's a great way to convince customers to try your services."
-      }
-    />,
-    <TestimonialSlide
-      avatar={avatar}
-      name={"Mariah Turner"}
-      identity={"Student"}
-      text={
-        "Testimonials are short quotes from people who love your brand. It's a great way to convince customers to try your services."
-      }
-    />,
-    <TestimonialSlide
-      avatar={avatar}
-      name={"Mariah Turner"}
-      identity={"Student"}
-      text={
-        "Testimonials are short quotes from people who love your brand. It's a great way to convince customers to try your services."
-      }
-    />,
-  ];
 
   return (
     <div>
       <NaviBar />
+
+      {/* Main landing view*/}
       <div
         className={`${classes.row} ${classes.landing}`}
         style={{ backgroundColor: BRIIDGE_BLUE }}
@@ -326,220 +334,88 @@ const Homepage = () => {
         {/* Only render extra shapes on large screen sizes */}
         {isDesktopView && (
           <div>
-            <img
-              src={homepage1}
-              alt="design1"
-              className={classes.homepageimgleft}
-            />
-            <img
-              src={homepage5}
-              alt="design5"
-              className={classes.homepageimgrightcurly}
-            />
-            <img
-              src={homepage4}
-              alt="design4"
-              className={classes.homepageimgright}
-            />
-            <img
-              src={homepage2}
-              alt="design2"
-              className={classes.homepageimgleftcurly}
-            />
+            <img src={homepage1} className={classes.homepageimgleft} />
+            <img src={homepage5} className={classes.homepageimgrightcurly} />
+            <img src={homepage4} className={classes.homepageimgright} />
+            <img src={homepage2} className={classes.homepageimgleftcurly} />
           </div>
         )}
 
         <h4 className={classes.subtitle}>
           {"Learn your way! Meet your goals!"}
         </h4>
-        <img src={homepage3} alt="design3" className={classes.homepageimg} />
+
+        <img src={homepage3} className={classes.homepageimg} />
       </div>
 
-      <div className={classes.row}>
-        <h2 className={classes.header}>{"How Our Platform Works"}</h2>
-
+      {/* How Our Platform Works */}
+      <HomepageRow header="How Our Platform Works">
         <div className={classes.smallText}>
           {
             "With just 3 simple steps you will be on your way towards achieving your very own academic goals"
           }
         </div>
 
-        <Grid container>
-          <Grid item container xs={12} md={4} direction="column">
-            <Grid item>
-              <img src={how1} alt="how1" className={classes.img} />
-            </Grid>
-            <Grid item>
-              <div className={classes.blueTitle}>
-                {"Let Us Know What You Seek For In A Tutor"}
-              </div>
-            </Grid>
-            <Grid item>
-              <div className={classes.belowBlueTitle}>
-                {"You will be asked to answer a few questions so that we can better understand your academic needs. " +
-                  "Our smart student-tutor matching system will then recommend the most suitable tutors to you."}
-              </div>
-            </Grid>
+        <Grid container direction="column" xs={12} spacing={3}>
+          <Grid item container>
+            {HOW_OUR_PLATFORM_WORKS.map((item) => (
+              <Grid item container xs={12} md={4} direction="column">
+                <Grid item>
+                  <img src={item.image} className={classes.img} />
+                </Grid>
+                <Grid item className={classes.blueTitle}>
+                  {item.title}
+                </Grid>
+                <Grid item className={classes.belowBlueTitle}>
+                  {item.description}
+                </Grid>
+              </Grid>
+            ))}
           </Grid>
-          <Grid item container xs={12} md={4} direction="column">
-            <Grid item>
-              <img src={how2} alt="how2" className={classes.img} />
-            </Grid>
-            <Grid item>
-              <div className={classes.blueTitle}>
-                {"Connect With The Tutor Of Your Choice"}
-              </div>
-            </Grid>
-            <Grid item>
-              <div className={classes.belowBlueTitle}>
-                {
-                  "Based on the recommended group of tutors, you choose the preferred tutor that you believe will best suit your academic needs."
-                }
-              </div>
-            </Grid>
-          </Grid>
-          <Grid item container xs={12} md={4} direction="column">
-            <Grid item>
-              <img src={how3} alt="how3" className={classes.img} />
-            </Grid>
-            <Grid item>
-              <div className={classes.blueTitle}>{"Arrange Your Lessons"}</div>
-            </Grid>
-            <Grid item>
-              <div className={classes.belowBlueTitle}>
-                {"After connecting with your preferred tutor, you may then proceed to book and schedule your lessons " +
-                  "through our convenient booking system."}
-              </div>
-            </Grid>
+          <Grid item xs={12}>
+            <Button
+              component={Link}
+              to={"/signup"}
+              className={`${classes.btn} ${"btn-primary"}`}
+            >
+              {"Join The Briidge Community Now!"}
+            </Button>
           </Grid>
         </Grid>
+      </HomepageRow>
 
-        <Button
-          type="button"
-          className={`${classes.btn} ${"btn-primary"}`}
-          component={Link}
-          to={"/signup"}
-        >
-          {"Join The Briidge Community Now!"}
-        </Button>
-      </div>
-
+      {/* How We Can Help You As A Student */}
       <HomepageRow header="How We Can Help You As A Student">
-        <HowWeCanHelp
-          items={[
-            {
-              title: "Personalised Learning",
-              description:
-                "Ability to find tutors based on the individual's personal academic needs and educational goals.",
-            },
-            {
-              title: "All Education Levels",
-              description: "Our platform caters to all educational levels.",
-            },
-            {
-              title: "Friendly Review System",
-              description:
-                "Opportunity to compare different tutors through a reliable review system before making a decision.",
-            },
-            {
-              title: "Peer to Peer Learning",
-              description:
-                "Our social networking platform promotes connectivity and networking between students, easing sharing" +
-                "of educational resources with one another.",
-            },
-          ]}
-        />
+        <HowWeCanHelp items={HOW_WE_CAN_HELP_STUDENTS} />
       </HomepageRow>
 
+      {/* How We Can Help You As A Tutor  */}
       <HomepageRow header="How We Can Help You As A Tutor">
-        <HowWeCanHelp
-          items={[
-            {
-              title: "Great Exposure",
-              description:
-                "Our platform connects you to a wide pool of students from various education levels, " +
-                "eliminating difficulties in sourcing for students.",
-            },
-            {
-              title: "Build Credibility",
-              description:
-                "Our ratings and review system help you build credibility throughout your journey with us.",
-            },
-            {
-              title: "Track Lessons & Payments",
-              description:
-                "Our platform allows you to conveniently plan and keep track of your lessons and payments with no hassle.",
-            },
-            {
-              title: "Freedom to Choose",
-              description:
-                "Our platform gives you the freedom to choose your students, ranging from education levels, " +
-                "specific subjects and specific teaching style.",
-            },
-          ]}
-        />
+        <HowWeCanHelp items={HOW_WE_CAN_HELP_TUTORS} />
       </HomepageRow>
 
+      {/* Our Features */}
       <HomepageRow rowColor={BRIIDGE_BLUE}>
-        <h2 className={classes.featuretitle}>{"Our Features"}</h2>
+        <h2 className={classes.featureHeader}>{"Our Features"}</h2>
         <Grid container xs={12} spacing={2} direction="column">
           <Grid item container justifyContent="space-between" xs={12}>
-            <Grid item xs={12} md={4} container direction="column">
-              <Grid item>
-                <img src={Tutor2} alt="how1" className={classes.img} />
-              </Grid>
-              <Grid item>
-                <div className={classes.whiteTitle}>
-                  {"Personalised Tutor Matchmaking"}
-                </div>
-              </Grid>
-              <Grid item>
-                <div
+            {FEATURES.map((item) => (
+              <Grid item xs={12} md={4} container direction="column">
+                <Grid item>
+                  <img src={item.image} className={classes.img} />
+                </Grid>
+                <Grid item className={classes.whiteTitle}>
+                  {item.title}
+                </Grid>
+                <Grid
+                  item
                   className={classes.belowBlueTitle}
-                  style={{ color: "#FFF" }}
+                  style={{ color: "white" }}
                 >
-                  {
-                    "Our platform connects you with the tutor of your choice based on your personal academic goals or needs."
-                  }
-                </div>
+                  {item.description}
+                </Grid>
               </Grid>
-            </Grid>
-            <Grid item xs={12} md={4} container direction="column">
-              <Grid item>
-                <img src={Schedule} alt="how2" className={classes.img} />
-              </Grid>
-              <Grid item>
-                <div className={classes.whiteTitle}>
-                  {"Convenient Scheduling"}
-                </div>
-              </Grid>
-              <Grid item>
-                <div
-                  className={classes.belowBlueTitle}
-                  style={{ color: "#FFF" }}
-                >
-                  {"Our platform eases lesson booking and scheduling with your tutor. " +
-                    "Constant reminders of upcoming lessons and payment deadlines provides you with a seamless tuition experience."}
-                </div>
-              </Grid>
-            </Grid>
-            <Grid item xs={12} md={4} container direction="column">
-              <Grid item>
-                <img src={StuNet} alt="how3" className={classes.img} />
-              </Grid>
-              <Grid item>
-                <div className={classes.whiteTitle}>{"Student Network"}</div>
-              </Grid>
-              <Grid item>
-                <div
-                  className={classes.belowBlueTitle}
-                  style={{ color: "#FFF" }}
-                >
-                  {"Our student social networking feature connects you with a large group of students from various education levels. " +
-                    "We provide the opportunity for you to exchange academic resources with anyone from any education level."}
-                </div>
-              </Grid>
-            </Grid>
+            ))}
           </Grid>
           <Grid item xs={12}>
             <Link to="/" style={{ color: "white", fontWeight: "bold" }}>
@@ -548,9 +424,9 @@ const Homepage = () => {
           </Grid>
           <Grid item xs={12}>
             <Button
-              className={`${classes.btn2} ${"btn-primary"}`}
               component={Link}
               to={"/signup"}
+              className={`${classes.btn2} ${"btn-primary"}`}
             >
               {"Start your free trial now!"}
             </Button>
@@ -558,6 +434,7 @@ const Homepage = () => {
         </Grid>
       </HomepageRow>
 
+      {/* Mission, Vision and Social Impact */}
       <HomepageRow>
         <h5 className={classes.finalheader}>
           {
@@ -566,52 +443,19 @@ const Homepage = () => {
         </h5>
         <Grid container direction="column" xs={12} spacing={3}>
           <Grid item container>
-            <Grid item container xs={12} md={4} direction="column">
-              <Grid item>
-                <div className={classes.bigblueTitle}>{"Our Mission"}</div>
+            {AIMS_AND_OBJECTIVES.map((item) => (
+              <Grid item container xs={12} md={4} direction="column">
+                <Grid item className={classes.bigblueTitle}>
+                  {item.title}
+                </Grid>
+                <Grid item>
+                  <img src={item.image} className={classes.img} />
+                </Grid>
+                <Grid item className={classes.belowBlueTitle}>
+                  {item.description}
+                </Grid>
               </Grid>
-              <Grid item>
-                <img src={book} alt="how1" className={classes.img} />
-              </Grid>
-              <Grid item>
-                <div className={classes.belowBlueTitle}>
-                  {"Our platform connects students to their preferred tutors based on their personal academic needs " +
-                    "supporting them towards reaching their educational goals."}
-                </div>
-              </Grid>
-            </Grid>
-            <Grid item container xs={12} md={4} direction="column">
-              <Grid item>
-                <div className={classes.bigblueTitle}>{"Our Vision"}</div>
-              </Grid>
-              <Grid item>
-                <img src={earth} alt="how2" className={classes.img} />
-              </Grid>
-              <Grid item>
-                <div className={classes.belowBlueTitle}>
-                  {"We aim to be the catalyst of change in the tuition industry worldwide through our convenient and " +
-                    "affordable online tutor matchmaking service. We strive to provide access to quality " +
-                    "education to students worldwide, especially the underprivileged."}
-                </div>
-              </Grid>
-            </Grid>
-            <Grid item container xs={12} md={4} direction="column">
-              <Grid item>
-                <div className={classes.bigblueTitle}>
-                  {"Our Social Impact"}
-                </div>
-              </Grid>
-              <Grid item>
-                <img src={heart} alt="how3" className={classes.img} />
-              </Grid>
-              <Grid item>
-                <div className={classes.belowBlueTitle}>
-                  {"We strive to support the underprivileged student community through our platform. " +
-                    "Every student using our services will help provide better access to quality education for those students " +
-                    "in need, starting from Singapore."}
-                </div>
-              </Grid>
-            </Grid>
+            ))}
           </Grid>
           <Grid item>
             <Link to="/" style={{ color: "black", fontWeight: "bold" }}>
@@ -621,6 +465,7 @@ const Homepage = () => {
         </Grid>
       </HomepageRow>
 
+      {/* Testimonials */}
       <HomepageRow header="What Our Briidge Community Says...">
         <Carousel
           slides={slides}
@@ -631,9 +476,11 @@ const Homepage = () => {
         />
       </HomepageRow>
 
+      {/* Contact Information Banner */}
       <div className={classes.contacttitle}>{"Contact Information"}</div>
-      <img src={contactus} alt="how1" className={classes.lastimg} />
+      <img src={contactus} className={classes.lastimg} />
 
+      {/* Contact Details */}
       <Grid
         container
         justifyContent="space-around"
@@ -642,55 +489,27 @@ const Homepage = () => {
         xs={12}
         spacing={3}
       >
-        <Grid
-          item
-          container
-          xs={12}
-          md={3}
-          direction="column"
-          alignItems="center"
-        >
-          <Grid item>{"EMAIL ADDRESS"}</Grid>
-          <Grid item>{EMAIL_ADDRESS}</Grid>
-        </Grid>
-        <Grid
-          item
-          container
-          xs={12}
-          md={3}
-          direction="column"
-          alignItems="center"
-        >
-          <Grid item>{"LINKEDIN"}</Grid>
-          <Grid item>{LINKEDIN_PROFILE}</Grid>
-        </Grid>
-        <Grid
-          item
-          container
-          xs={12}
-          md={3}
-          direction="column"
-          alignItems="center"
-        >
-          <Grid item>{"INSTAGRAM"}</Grid>
-          <Grid item>{INSTAGRAM_USERNAME}</Grid>
-        </Grid>
-        <Grid
-          item
-          container
-          xs={12}
-          md={3}
-          direction="column"
-          alignItems="center"
-        >
-          <Grid item>
-            <Button
-              type="button"
-              className={`${classes.btn3} ${"btn-primary"}`}
-            >
-              {"Drop us an enquiry!"}
-            </Button>
+        {[
+          { method: "EMAIL ADDRESS", value: EMAIL_ADDRESS },
+          { method: "LINKEDIN", value: LINKEDIN_PROFILE },
+          { method: "INSTAGRAM", value: INSTAGRAM_USERNAME },
+        ].map((item) => (
+          <Grid
+            item
+            container
+            xs={12}
+            md={3}
+            direction="column"
+            alignItems="center"
+          >
+            <Grid item>{item.method}</Grid>
+            <Grid item>{item.value}</Grid>
           </Grid>
+        ))}
+        <Grid item>
+          <Button type="button" className={`${classes.btn3} ${"btn-primary"}`}>
+            {"Drop us an enquiry!"}
+          </Button>
         </Grid>
       </Grid>
     </div>
