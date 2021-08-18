@@ -18,7 +18,7 @@ import StuNet from "../Shared/StuNet.png";
 import avatar from "../Shared/avatar.png";
 import Schedule from "../Shared/Schedule.png";
 import Tutor2 from "../Shared/Tutor2.png";
-import { Button, Grid } from "@material-ui/core";
+import { Button, Grid, Theme, useMediaQuery } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import { Carousel } from "3d-react-carousal";
 import { BRIIDGE_BLUE, BRIIDGE_YELLOW } from "../themes";
@@ -216,8 +216,7 @@ const useStyles = makeStyles((theme) => ({
   homepageimg: {
     height: 60,
     width: 130,
-    marginTop: 150,
-    marginBottom: -50,
+    marginTop: theme.spacing(15),
   },
 
   contactInformation: {
@@ -227,6 +226,9 @@ const useStyles = makeStyles((theme) => ({
 
 const Homepage = () => {
   const classes = useStyles();
+  const isDesktopView = useMediaQuery((theme: Theme) =>
+    theme.breakpoints.up("lg")
+  );
   let slides = [
     <TestimonialSlide
       avatar={avatar}
@@ -265,18 +267,20 @@ const Homepage = () => {
           Learn from the tutor of your choice today!
         </div>
 
-        <div>
-          <img
-            src={homepage1}
-            alt="design1"
-            className={classes.homepageimgleft}
-          />
-          <img
-            src={homepage5}
-            alt="design5"
-            className={classes.homepageimgrightcurly}
-          />
-        </div>
+        {isDesktopView && (
+          <div>
+            <img
+              src={homepage1}
+              alt="design1"
+              className={classes.homepageimgleft}
+            />
+            <img
+              src={homepage5}
+              alt="design5"
+              className={classes.homepageimgrightcurly}
+            />
+          </div>
+        )}
 
         <img
           src={wordLogo}
@@ -284,18 +288,20 @@ const Homepage = () => {
           className={classes.bridgeMainImg}
         />
 
-        <div>
-          <img
-            src={homepage4}
-            alt="design4"
-            className={classes.homepageimgright}
-          />
-          <img
-            src={homepage2}
-            alt="design2"
-            className={classes.homepageimgleftcurly}
-          />
-        </div>
+        {isDesktopView && (
+          <div>
+            <img
+              src={homepage4}
+              alt="design4"
+              className={classes.homepageimgright}
+            />
+            <img
+              src={homepage2}
+              alt="design2"
+              className={classes.homepageimgleftcurly}
+            />
+          </div>
+        )}
 
         <h4 className={classes.subtitle}>Learn your way! Meet your goals!</h4>
         <img src={homepage3} alt="design3" className={classes.homepageimg} />

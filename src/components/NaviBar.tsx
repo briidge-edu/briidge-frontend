@@ -24,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "20px",
     fontFamily: "Quicksand-Bold",
     padding: "5px 19px 5px 19px",
+    margin: theme.spacing(1),
   },
 }));
 
@@ -68,7 +69,6 @@ const NaviBar = () => {
           <Button
             type="button"
             className={`${classes.btn} ${"btn-primary"}`}
-            style={{ marginRight: 10 }}
             component={Link}
             to={"/login"}
           >
